@@ -1,0 +1,35 @@
+.main {
+    box-sizing: border-box;
+    padding: 50px;
+}
+.main-text {
+    text-align: center;
+    padding: 100px 0;
+}
+
+.main-title {
+    text-transform: uppercase;
+}
+
+.main-cart-column-title {
+    color: rgb(167, 167, 167);
+    margin: 0 10px;
+    text-align: left;
+}
+
+.hr {
+    background: rgb(167, 167, 167);
+    height: 1px;
+    width: 100%;
+    margin: 10px 0;
+}
+.main-cart-product-block-img {
+    background: url(../images/catalog/1.jpg) no-repeat;
+    background-size: contain;
+    padding: 50px;
+    border: 1px solid rgb(167, 167, 167);
+    display: inline-block;
+}
+td, th {
+    padding: 10px;
+}
