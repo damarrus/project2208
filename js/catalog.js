@@ -17,4 +17,17 @@ $(document).ready(function(){
 
     });
 
+    var page = 1;
+
+    $('.catalog_pages-item').on('click',function (){
+
+        if (page == 1) {
+            $(this).removeClass("catalog_pages-item").addClass("catalog_pages-item_e");
+            page = 2;
+        } else if (page == 2) {
+            $(this).removeClass("catalog_pages-item_e").addClass("catalog_pages-item");
+            page = 1;
+        }
+    });
+
 });
