@@ -29,7 +29,13 @@
                 </div>
             </td>
             <td class="tac">39</td>
-            <td class="tac">1</td>
+            <td class="tac"><div class="amount">1
+                <div class="amount-btn">
+                    <div class="amount-btn-plus">+</div>
+                    <div class="amount-btn-minus">-</div>
+                </div>
+            </div>
+            </td>
             <td class="tac">3800 руб.</td>
             <td>
                 <div class="main-cart-product-block-delete"></div>
@@ -46,7 +52,12 @@
                 </div>
             </td>
             <td class="tac">39</td>
-            <td class="tac">1</td>
+            <td class="tac"><div class="amount">1
+                <div class="amount-btn">
+                    <div class="amount-btn-plus">+</div>
+                    <div class="amount-btn-minus">-</div>
+                </div>
+            </div>
             <td class="tac">3800 руб.</td>
             <td>
                 <div class="main-cart-product-block-delete"></div>
@@ -63,7 +74,12 @@
                 </div>
             </td>
             <td class="tac">39</td>
-            <td class="tac">1</td>
+            <td class="tac"><div class="amount">1
+                <div class="amount-btn">
+                    <div class="amount-btn-plus">+</div>
+                    <div class="amount-btn-minus">-</div>
+                </div>
+            </div>
             <td class="tac">3800 руб.</td>
             <td>
                 <div class="main-cart-product-block-delete"></div>
