@@ -7,16 +7,19 @@
     </div>
     <h1 class="catalog_hello">МУЖЧИНАМ</h1>
     <h2 class="catalog_descr">Все товары</h2>
-    <div class="lists">
-        <select name="category" id="cat_list">
-            <option value="" selected>Категория</option>
-        </select>
-        <select name="size" id="size_list">
-            <option value="" selected>Размер</option>
-        </select>
-        <select name="price" id="price_list">
-            <option value="" selected>Стоимость</option>
-        </select>
+    <div class="catalog_list">
+        <div class="catalog_list-item">
+            <p>Категория</p>
+            <div class="catalog_list-item-list"></div>
+        </div>
+        <div class="catalog_list-item">
+            <p>Размер</p>
+            <div class="catalog_list-item-list"></div>
+        </div>
+        <div class="catalog_list-item">
+            <p>Стоимость</p>
+            <div class="catalog_list-item-list"></div>
+        </div>
     </div>
     <div class="catalog_cards">
         <div class="catalog_cards-item">
@@ -86,5 +89,8 @@
         <div class="catalog_pages-item">3</div>
         <div class="catalog_pages-item">4</div>
     </div>
+
+    <script src="../lib/jquery-3.3.1.min.js"></script>  
+    <script src="../js/catalog.js"></script>  
 
 <?php require_once '../templates/footer.php' ?>
