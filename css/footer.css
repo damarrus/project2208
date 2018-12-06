@@ -1,0 +1,67 @@
+/*
+    This is the css style for footer on Project 2208.
+    Autor: Konstantin Blinov 
+    create date: 06-12-2018
+    Russian text begin: Код сверстан в сыром виде, в  выходные причешу!
+*/
+.under-box{
+    box-sizing: border-box;
+    color: rgb(49, 49, 49);
+    display: flex;
+    flex-wrap: wrap;
+    font-family: Verdana, Arial, Helvetica, sans-serif;
+    justify-content: space-between;  
+    max-width: 95%;
+    min-width: 750px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 20px;
+
+}
+.under-box-topik{
+    font-size: 80%;
+    font-weight: bold;
+    margin:0 0 8px 0;
+    text-transform: uppercase;
+    text-align: left;
+}
+.under-box-item{ 
+    box-sizing: border-box;
+    width: 30%;
+    padding: 5px 10px;
+    margin-bottom: 40px;
+ }
+.under-item-menu{
+    font-size: 70%;
+    margin:0 0 5px 0;
+}
+.under-item-menu a{
+    color: rgb(100, 100, 100);
+    text-decoration: none;
+}
+.social-box{
+    display: flex;
+    box-sizing: border-box;
+    justify-content: left;
+    margin-top: 15px;
+    width: 90%;
+}
+.social-unit2{
+    background: url(../images/icons/twitter.png) center center / contain no-repeat;
+    border: 1px solid rgb(100, 100, 100);
+    margin:0 8px 5px 0;
+    padding: 15px 15px;
+}
+.social-unit3{
+    background: url(../images/icons/facebook.png) center center / contain no-repeat;
+    border: 1px solid rgb(100, 100, 100);
+    margin:0 8px 5px 0;
+    padding: 15px 15px;
+}
+.social-unit1{
+    background: url(../images/icons/instagram.png) center center / contain no-repeat;
+    border: 1px solid rgb(100, 100, 100);
+    margin:0 8px 5px 0;
+    padding: 15px 15px;
+}
+

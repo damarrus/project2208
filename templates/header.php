@@ -5,6 +5,7 @@
     <title>Document</title>
     <link rel="stylesheet" href="../css/style.css">
     <link rel="stylesheet" href="../css/header.css">
+    <link rel="stylesheet" href="../css/footer.css">
 </head>
 <body>
     <div class="wrapper">
@@ -13,11 +14,11 @@
                 <div class="head-menu-logo">
                 </div>
                 <div class="head-menu-text">
-                    <a href="womens.php">Женщинам</a>
-                    <a href="mens.php">Мужчинам</a>
-                    <a href="kids.php">Женщинам</a>
-                    <a href="novice.php">Женщинам</a>
-                    <a href="about.php">Женщинам</a>
+                    <a href="#">Женщинам</a>
+                    <a href="#">Мужчинам</a>
+                    <a href="#">Женщинам</a>
+                    <a href="#">Женщинам</a>
+                    <a href="#">Женщинам</a>
                 </div>
                 <div class="customer-area">
                     <div class="customer-area-box">
