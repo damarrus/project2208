@@ -5,9 +5,9 @@
                    <p class="under-box-topik">коллекции</p>
                     <div class="under-item-menu"><a href="#">Женщинам</a></div>
                     <div class="under-item-menu"><a href="#">Мужчинам</a></div>
-                    <div class="under-item-menu"><a href="#">Женщинам</a></div>
-                    <div class="under-item-menu"><a href="#">Женщинам</a></div>
-                    <div class="under-item-menu"><a href="#">Женщинам</a></div>
+                    <div class="under-item-menu"><a href="#">Детям</a></div>
+                    <div class="under-item-menu"><a href="#">Новинки</a></div>
+                    <div class="under-item-menu"><a href="#">О нас</a></div>
                 </div>
                 <div class="under-box-item">
                     <p class="under-box-topik">магазин</p>
