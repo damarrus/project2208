@@ -1,4 +1,5 @@
-<?php require_once '../templates/header.php' ?>
+<?php require_once '../templates/header.php';
+ require_once '../models/Category.php';?>
 <link rel="stylesheet" href="../css/catalog.css">
     <div class="catalog_path">
         <a class="catalog_a" href="#">ГЛАВНАЯ</a>
@@ -11,9 +12,13 @@
         <div class="catalog_list-item">
             <p>Категория</p>
             <div class="catalog_list-item-list">
-                <p>Мужчинам</p>
-                <p>Женщинам</p>
-                <p>Детям</p>
+            <?php 
+            $categories = Category::getAll();
+            foreach ($categories as $cat) {
+            echo '<p>'.$cat->description.'</p>';
+                }
+            ?>  
+                              
             </div>
         </div>
         <div class="catalog_list-item">
