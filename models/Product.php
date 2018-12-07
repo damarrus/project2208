@@ -27,22 +27,7 @@ class Product
 
     }
 
-    public static function getAll()
-    {
-        global $mysqli;
-        
-        $query = "SELECT product_id FROM products";
-        $result = $mysqli->query($query);
-
-        $products = [];
-        while ($product_data = $result->fetch_assoc()) {
-            $products[] = new Product($product_data['product_id']);
-        }
-
-        return $products;
-    }
-
-    public static function getAllbyField($category_id = false, $collection_id = false)
+    public static function getAll($category_id = false, $collection_id = false)
     {
         global $mysqli; 
 
@@ -73,6 +58,6 @@ class Product
 
 }
 
-$productscol = Product::getAllbyField(1,0);
-var_dump($productscol);
+//$productscol = Product::getAll(1,0);
+//var_dump($productscol);
 
