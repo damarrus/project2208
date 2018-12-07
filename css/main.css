@@ -1,0 +1,48 @@
+* {
+    margin: 0;
+    padding: 0;
+    border: 0;
+}
+
+body {background-color: gainsboro;}
+
+.wrapper {
+    width: 1200px;
+    margin: 20px auto;
+    background-color: #fff;
+}
+
+.main-center{text-align:center; padding-top: 30px; padding-top: 70px; padding-bottom: 40px; margin-bottom: 60px;}
+h1,h2,h3,p {margin-bottom: 10px;}
+.main-button{margin: 30px 0px; padding: 25px; background-color: #fff; border:1px solid gray;}
+.main-b{display: flex; width: 100%; justify-content:center; margin-bottom: 70px; color:white;}
+.main-b-flex1 {width:23.5%; height:600px; display: flex; flex-wrap: wrap; }
+.main-b-flex2 {width:47%; height:600px; display: flex; flex-wrap: wrap;}
+
+.main-b-flex1 .b1,
+.main-b-flex1 .b2 {width:100%; display: flex; justify-content: center; align-items: center;}
+.main-b-flex1 .b1 {height:400px;}
+.main-b-flex1 .b2 {height:200px;}
+.main-b-flex2 .b2 {width:50%; height: 200px; display: flex; justify-content: center; align-items: center;}
+
+.img1{background-image: url(../images/1.jpg); background-size: cover;}
+.img2{background-image: url(../images/2.jpg); background-size: cover;}
+.img3{background-image: url(../images/3.jpg); background-size: cover;}
+.img4{background-image: url(../images/4.jpg); background-size: cover;}
+.img7{background-image: url(../images/7.jpg); background-size: cover;}
+.img8{background-image: url(../images/8.jpg); background-size: cover;}
+.gray{background-color: grey;}
+.light-gray{background-color: #D3D3D3;}
+
+
+.input-email{width:30%;border:1px solid grey;box-sizing:border-box;}
+.button-email{background-color: orange;}
+.input-email,
+.button-email{padding:15px;}
+
+.red_color{color:red;}
+.podpiska{margin-top: 30px;}
+
+
+
+
