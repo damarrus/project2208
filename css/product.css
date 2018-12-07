@@ -1,0 +1,60 @@
+
+php { overflow-x:  hidden}
+a {text-decoration: none}
+a {color: white;}
+a:visited {color: white;}
+
+.product-img {
+    background-image: url(../images/9.jpg);
+    padding: 237px;
+    background-repeat: no-repeat;
+    margin: auto;
+    width: 61px;
+}
+
+.product-description {
+    width: 787px;
+    text-align: center;
+    margin: auto;
+    font-family: 'Roboto', sans-serif;
+}
+
+.product-description h4 {
+    color:#9b9999
+}
+
+.product-description h3 {
+    color:#3f3e3e
+}
+
+.product-size {
+    text-align: center;
+}
+
+.sizes{   
+    display: flex;
+    flex-wrap: wrap;
+    margin: auto;
+    justify-content: center;
+    margin-top: 15px;
+    margin-bottom: 15px;
+}
+
+.size {
+    width: 30px;
+    height: 25px;
+    border: 1px solid black;
+    margin: 7px;
+    text-align: center
+}
+
+.product-bottom{
+background: orange;
+width: 219px;
+color: white;
+font-family: condensed;
+line-height: 50px;
+text-align: center;
+margin: auto;
+font-size: 21px;
+}
