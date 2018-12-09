@@ -2,7 +2,8 @@
     This is the css style for footer on Project 2208.
     Autor: Konstantin Blinov 
     create date: 06-12-2018
-    Russian text begin: Код сверстан в сыром виде, в  выходные причешу!
+    Russian text begin: селекторы идут в порядке применения на странице
+                        блоки обьявлений в алфавитном порядке!
 */
 .under-box{
     box-sizing: border-box;
@@ -10,26 +11,25 @@
     display: flex;
     flex-wrap: wrap;
     font-family: Verdana, Arial, Helvetica, sans-serif;
-    justify-content: space-between;  
-    max-width: 95%;
-    min-width: 750px;
+    justify-content: space-between;
     margin-left: auto;
     margin-right: auto;
     margin-top: 20px;
-
+    max-width: 95%;
+    min-width: 750px;
 }
 .under-box-topik{
     font-size: 80%;
     font-weight: bold;
     margin:0 0 8px 0;
-    text-transform: uppercase;
     text-align: left;
+    text-transform: uppercase;
 }
 .under-box-item{ 
     box-sizing: border-box;
-    width: 30%;
-    padding: 5px 10px;
     margin-bottom: 40px;
+    padding: 5px 10px;
+    width: 30%;
  }
 .under-item-menu{
     font-size: 70%;
@@ -40,8 +40,8 @@
     text-decoration: none;
 }
 .social-box{
-    display: flex;
     box-sizing: border-box;
+    display: flex;
     justify-content: left;
     margin-top: 15px;
     width: 90%;
