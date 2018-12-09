@@ -1,0 +1,10 @@
+.cutting_line{
+    background: url(../images/icons/cutting_line.png) repeat-x scroll 0 bottom rgba(0, 0, 0, 0);
+    margin: 8px;
+    padding: 8px 0;
+}
+.admin-bottom-area{
+    margin-bottom: 15px;
+    margin-top: 5px;
+    padding: 5px 0 15px 0; 
+}
