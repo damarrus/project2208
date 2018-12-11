@@ -55,8 +55,8 @@ class Order
 
 }
 
-$order_col = Order::getAll(0,0);
-var_dump($order_col);
+// $order_col = Order::getAll(0,0);
+// var_dump($order_col);
 
 
 
