@@ -11,8 +11,14 @@
 <hr>
 <div class="container">
   <h2>Список заказов</h2>
-  <p>Быстрые фильтры к поиску</p>                                                                                      
-  
+    <!-- Форма поиска заказов. По умолчанию выводит последний месяц.  -->
+    <form method="POST" class="form-inline  mt-4 mb-4" action="/sort_date.php">
+      <label for="dateFrom" class="mr-sm-2">Отобразить заказы с: </label>
+      <input type="date" class="form-control mr-sm-2" id="dateFrom">
+      <label for="dateTo" class="mr-sm-2">по: </label>
+      <input type="date" class="form-control mr-sm-2" id="dateTo">
+      <button type="submit" class="btn btn-primary">Показать</button>
+  </form>
   <div class="table-responsive-md table-striped">
   <div class="row">
   <div class="col-sm-2">14.11.2018</div>
@@ -68,8 +74,8 @@
       </tbody>
     </table>
   </div> <!--конец контейнера с таблицей -->
-  <div class="cutting_line"></div>
-  <div class="table-responsive table-striped">
+  <div class="cutting_line mb-3 pt-2"></div>
+  <div class="table-responsive-md table-striped">
   <div class="row">
   <div class="col-sm-2">13.11.2018</div>
   <div class="col-sm-2">Заказ: 005620</div>
@@ -124,12 +130,15 @@
       </tbody>
     </table>
   </div> <!--конец контейнера с таблицей -->
-  <div class="cutting_line"></div>
-  <div class="admin-bottom-area">
-      <p>Не нашли свой зака, но знаете номер? <a href="#">Найти заказ по номеру</a></p>
+  <div class="cutting_line mb-3 pt-2"></div>
+  <div class="mt-3 pb-3">
+    <!-- Форма поиска заказов по номеру.  -->
+    <form method="POST" class="form-inline  mt-4 mb-4" action="#">
+      <label for="orderId" class="mr-sm-2">Не нашли свой заказ, но знаете номер?</label>
+      <input type="text" class="form-control mr-sm-2" placeholder="введите номер" id="orderId">
+      <button type="submit" class="btn btn-primary">Найти заказ</button>
+    </form>
   </div> 
 </div>
-
-
 
 <?php require_once '../templates/admin_foot.php' ?>
