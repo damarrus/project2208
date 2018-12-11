@@ -1,6 +1,6 @@
 <?php
 
-require_once '../db.php';
+require_once '../dbMac.php';
 
 class Order 
 {
@@ -8,46 +8,42 @@ class Order
     public $status;
     public $address;
     public $user_id;
+    public $total;
 
     public function __construct($id)
     {
         global $mysqli;
         
-        $query = "SELECT * FROM orders WHERE order_id = $id" ;
+        $query = "SELECT order_id, status, address, user_id, total FROM orders WHERE order_id = $id";
         $result = $mysqli->query($query);
+
         $data = $result->fetch_assoc();
+
         $this->id = $data['order_id'];
         $this->status = $data['status'];
         $this->address = $data['address'];
         $this->user_id = $data['user_id'];
+        $this->total = $data['total'];
+
     }
-    
-    
+
     public static function getAll($status = false, $user_id = false)
     {
-        global $mysqli;
+        global $mysqli; 
+        $condition = "";
+
+        if ($status != false) {
+            $condition .= " AND order_id = $status";
+        } 
         
-        if ($status === false && $user_id === false) {
-            $query = "SELECT order_id FROM orders";
-            $result = $mysqli->query($query);
+        if ($user_id != false) {
 
-        } else if ($user_id === false){
-            $queryTwo = "SELECT order_id FROM orders WHERE status = $status";
-            $result = $mysqli->query($queryTwo);
+            $condition .= " AND user_id = $user_id";
 
-        } else if ($status === false){
-            $queryTwo = "SELECT order_id FROM orders WHERE user_id = $user_id";
-            $result = $mysqli->query($queryTwo);
-
-        } else {
-            $queryThree = "SELECT order_id FROM orders WHERE status = $status AND user_id = $user_id";
-            $result = $mysqli->query($queryThree);
         }
-        
-        // if ($user_id === false) {
-        //     $query = "SELECT order_id FROM orders";
-        //     $result = $mysqli->query($query);
-        // }
+
+        $query = "SELECT order_id FROM orders WHERE 1 $condition"; 
+        $result = $mysqli->query($query);
 
         $orders = [];
         while ($order_data = $result->fetch_assoc()) {
@@ -56,23 +52,15 @@ class Order
 
         return $orders;
     }
+
 }
 
-// $order = new Order(3);
-// var_dump($order->address);
-
-// $orders = Order::getAll();
-// var_dump($orders->user_id);
-
-// Это используем во Views
-// foreach ($orders as $order) {
-//     echo '<h2>'.$order->id.'</h2>';
-//     echo '<h1>'.$order->address.'</h1>';
-//     echo '<h4>'.$order->user_id.'</h4> <hr>';
-// }
+$order_col = Order::getAll(0,0);
+var_dump($order_col);
 
 
-// $orders = Order::getAll(false, false);
+
+// $orders = Order::getAll(0, 1);
 // foreach ($orders as $order) {
 //     echo '<h1>Статус заказа: '.$order->status.'</h1>';    
 //     echo '<p>Номер заказа: '.$order->id.'</p>';
