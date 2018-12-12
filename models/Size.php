@@ -45,10 +45,9 @@ class Size
                 $query = "SELECT size_id FROM product_sizes WHERE product_id=$product_id";
             } 
             else {
-                $query = "SELECT size_id, value FROM sizes WHERE size_id=$id";
+                $query = "SELECT size_id FROM sizes";
             }
 
-        $query = "SELECT size_id FROM product_sizes WHERE product_id=$product_id";
         $result = $mysqli->query($query);
 
         $sizes = [];
@@ -60,12 +59,12 @@ class Size
     }
 }
 
-// $size = new Size(2);
-// var_dump($size->value);
-$sizes = Size::getAllByProduct(1);
-// $sizes = Size::getAll();
-// var_dump($sizes);
+// // // $size = new Size(2);
+// // // var_dump($size->value);
+// // $sizes = Size::getAllByProduct(1);
+// // // $sizes = Size::getAll();
+// // // var_dump($sizes);
 
-foreach ($sizes as $size) {
-    echo '<h1>'.$size->value.'</h1>';
-}
+// // foreach ($sizes as $size) {
+// //     echo '<h1>'.$size->value.'</h1>';
+// }
