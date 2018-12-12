@@ -42,6 +42,10 @@
             </div>
         </div>
     </div>
+    <!-- <?php foreach ($products as $product) {
+        echo '<h1>'.$product->title.'</h1>';
+    }
+    ?> -->
     <div class="catalog_cards">
         <div class="catalog_cards-item">
             <img src="../images/catalog/1.jpg" alt="card_1">
