@@ -42,33 +42,21 @@ class Product
         return $products;
     }
 
-    public static function getAllbyField($category_id = false, $collection_id = false, $order_id = false)
+    public static function getAllbyOrderNum($order_id = false)
     {
         global $mysqli; 
 
         $condition = "";
-        $tables = "products";
-
-        if ($category_id != false) {
-
-            $condition .= " AND category_id = $category_id";
-
-        } 
-        
-        if ($collection_id != false) {
-
-            $condition .= " AND collection_id = $collection_id";
-
-        }
+        $tables = "products p";
 
         if ($order_id != false) {
 
-            $tables .= ", orders";
-            $condition .= " AND order_id = $order_id";
+            $tables .= ", order_products op";
+            $condition .= " AND op.order_id = $order_id AND p.product_id = op.product_id";
 
         }
 
-        $query = "SELECT product_id FROM $tables WHERE 1 $condition"; 
+        $query = "SELECT p.product_id FROM $tables WHERE 1 $condition"; 
         var_dump($query);
         $result = $mysqli->query($query);
 
@@ -80,8 +68,9 @@ class Product
         return $products;
     }
 
+
 }
 
-$productscol = Product::getAllbyField(false,false,1);
-var_dump($productscol);
+$products = Product::getAllbyOrderNum(2);
+var_dump($products);
 
