@@ -9,7 +9,7 @@
 </head>
 <body>
     <div class="wrapper">
-        <header>
+        <header class="header">
             <menu class="head-menu-box">
                 <div class="head-menu-area">
                 <div class="head-menu-logo"></div>
