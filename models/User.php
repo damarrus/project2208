@@ -38,7 +38,29 @@ class User
 
         return $users;
     }
+
+    public static function proverka ($login,$pass)
+    {
+        global $mysqli;
+        $result = 0;
+        $query = "SELECT `user_id` FROM `users` WHERE `login`='$login' AND `pass`='$pass'";
+        $result = $mysqli->query($query);
+       
+        if (mysqli_num_rows($result) ===0) {
+            $f = false;
+            } else { 
+            $f = true;
+            }
+        return $f;
+    }
+   
+
 }
+    /*Тестирование proverka
+    $login = 'admin';
+    $pass = 123;
+    echo User::proverka ($login,$pass);
+    echo User::proverka ('admin','12345');*/
 
 // $user = new User(1);
 // var_dump($user->login);
