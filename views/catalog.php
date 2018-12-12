@@ -1,5 +1,5 @@
 <?php require_once '../templates/header.php';
- require_once '../models/Category.php';?>
+ ?>
 <link rel="stylesheet" href="../css/catalog.css">
     <div class="catalog_path">
         <a class="catalog_a" href="#">ГЛАВНАЯ</a>
@@ -13,7 +13,6 @@
             <p>Категория</p>
             <div class="catalog_list-item-list">
             <?php 
-            $categories = Category::getAll();
             foreach ($categories as $cat) {
             echo '<p>'.$cat->description.'</p>';
                 }
@@ -48,13 +47,16 @@
     ?> -->
     <div class="catalog_cards">
         <?php
+        
+        //$qurey = SELECT `product_id`, `title`,`category_id` FROM `products` WHERE `category_id`=1;
         foreach ($products as $product) {
-            echo '<div class="catalog_cards-item">';
-            echo '<img src="../images/catalog/1.jpg" alt="card_1">';
-            echo '<p id="cards-item-title">'.$product->title.'</p>';
-            echo '<p id="cards-item-price">'.$product->price.' руб.</p>';
-            echo '</div>';
-        }
+                echo '<div class="catalog_cards-item">';
+                echo '<img src="../images/catalog/1.jpg" alt="card_1">';
+                echo '<p id="cards-item-title">'.$product->title.'</p>';
+                echo '<p id="cards-item-price">'.$product->price.' руб.</p>';
+                echo '</div>';
+            }
+        
             ?>
     </div>
     <div class="catalog_pages">
@@ -64,6 +66,6 @@
         <div class="catalog_pages-item">4</div>
     </div>
 
-    <script src="../js/catalog.js"></script>  
+    
 
 <?php require_once '../templates/footer.php' ?>

@@ -36,6 +36,7 @@
 
     <script src="../lib/jquery-3.3.1.min.js"></script> 
     <script src="../js/add_to_cart.js"></script> 
+    <script src="../js/catalog.js"></script>  
 
 </body>
 </html>
