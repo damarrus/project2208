@@ -1,0 +1,10 @@
+/*
+    This is the css style for footer on Project 2208.
+    Autor: Konstantin Blinov 
+    create date: 09-12-2018
+    Russian text begin: Код поместил в отдельный файл, 
+    если команда сочтет лишним  - удалить будет просто.
+*/
+.cutting_line{
+    background: url(../images/icons/cutting_line.png) repeat-x scroll 0 bottom rgba(0, 0, 0, 0);
+}
