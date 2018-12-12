@@ -52,12 +52,11 @@ class Product
         while ($product_data = $result->fetch_assoc()) {
             $products[] = new Product($product_data['product_id']);
         }
-
+        
         return $products;
     }
 
 }
 
-//$productscol = Product::getAll(1,0);
-//var_dump($productscol);
+// x
 
