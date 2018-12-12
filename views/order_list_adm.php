@@ -1,4 +1,4 @@
-<?php require_once '../templates/admin_head.php' ?>
+<?php require_once '../templates/header_admin.php' ?>
 
 <link rel="stylesheet" href="../css/admin_order.css">
 
@@ -141,4 +141,4 @@
   </div> 
 </div>
 
-<?php require_once '../templates/admin_foot.php' ?>
+<?php require_once '../templates/footer_admin.php' ?>
