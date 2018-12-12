@@ -5,7 +5,7 @@
 }
 
 body {
-    background-color: gainsboro;
+    background-color: gainsboro!important;
 }
 
 .wrapper {
