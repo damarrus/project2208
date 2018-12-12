@@ -35,22 +35,16 @@ class Product
         $tables = "products p";
 
         if ($category_id != false) {
-
             $condition .= " AND category_id = $category_id";
-
         } 
         
         if ($collection_id != false) {
-
             $condition .= " AND collection_id = $collection_id";
-
         }
 
         if ($order_id != false) {
-
             $tables .= ", order_products op";
             $condition .= " AND op.order_id = $order_id AND p.product_id = op.product_id";
-
         }
 
         $query = "SELECT p.product_id FROM $tables WHERE 1 $condition"; 
