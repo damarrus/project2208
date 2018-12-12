@@ -42,7 +42,8 @@
             <div class="size">42</div>
         </div>
 </div>
-
-    <a href="#" class="product-button">Добавить в корзину</a>
+<div class="product-button">
+    <a href="#" class="">Добавить в корзину</a>
+</div>
 
 <?php require_once '../templates/footer.php' ?>
