@@ -27,22 +27,32 @@ class Order
 
     }
 
-    public static function getAll($status = false, $user_id = false)
+    public static function getAll($status = false, $user_id = false, $page = 1)
     {
         global $mysqli; 
+        $page -= 1;
+        $count_items = 5;
         $condition = "";
 
         if ($status != false) {
-            $condition .= " AND order_id = $status";
+            $condition .= " AND status = $status";
         } 
         
         if ($user_id != false) {
-
             $condition .= " AND user_id = $user_id";
-
         }
 
-        $query = "SELECT order_id FROM orders WHERE 1 $condition"; 
+        $query = "SELECT COUNT(*) as count FROM orders";
+        $result = $mysqli->query($query);
+        $count = $result->fetch_assoc();
+
+        if ($count['count'] < $page * $count_items) {
+            return false;
+        } 
+
+        $limit = ' LIMIT ' . ($page * $count_items) . ', ' . $count_items;
+
+        $query = "SELECT order_id FROM orders WHERE 1 $condition $limit";
         $result = $mysqli->query($query);
 
         $orders = [];
@@ -50,7 +60,10 @@ class Order
             $orders[] = new Order($order_data['order_id']);
         }
 
-        return $orders;
+        return [
+            'orders' => $orders, 
+            'count' => $count['count']
+        ];
     }
 
 }
