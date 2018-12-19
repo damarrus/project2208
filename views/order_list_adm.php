@@ -41,52 +41,7 @@
       echo '<div class="col-sm-3">Адрес доставки: '.$order->address.'</div>';
       echo '<div class="col-sm-3  font-weight-bold">Общая сумма: '.$order->total.' руб.</div>';
       echo ' </div>
-        <table class="table">
-          <thead>
-            <tr>
-              <th>Артикул</th>
-              <th>Фото</th>
-              <th>Описание товара</th>
-              <th>Размер</th>          
-              <th>Кол-во</th>
-              <th>Цена</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td>24371</td>
-              <td>Картинка</td>
-              <td>Куртка кожанная мужская</td>
-              <td>48</td>         
-              <td>1</td>
-              <td>12800 руб.</td>
-            </tr>
-            <tr>
-              <td>00815</td>
-              <td>Картинка</td>
-              <td>Кеды серые</td>
-              <td>41</td>
-              <td>1</td>
-              <td>2900 руб.</td>
-            </tr>
-            <tr>
-              <td>00025</td>
-              <td>Картинка</td>
-              <td>Джинсы GAS</td>
-              <td>32</td>
-              <td>2</td>
-              <td>9600 руб.</td> 
-            </tr>
-            <tr>
-              <td>00125</td>
-              <td>Картинка</td>
-              <td>Услуга: "Доставка курьером"</td>
-              <td>__</td>
-              <td>1</td>
-              <td>300 руб.</td>
-            </tr>
-          </tbody>
-        </table>
+        
       </div>
   <div class="cutting_line mb-5 pt-2"></div>';
 }

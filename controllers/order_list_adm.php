@@ -3,9 +3,15 @@
 
 require_once '../models/Order.php';
 
-$orders = Order::getAll();
+if (isset($_GET['page']) && $_GET['page'] != '') {
+    $page = $_GET['page'];
+} else {
+    $page = 1;
+}
 
+$data = Order::getAll(false, false, $page);
 
+$orders = $data['orders'];
 
 require_once '../views/order_list_adm.php';
 
