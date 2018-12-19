@@ -31,7 +31,7 @@
                         <div class="customer-area-box">
                         <div class="customer-area-logo-basket"></div>
                         <div class="customer-area-basket">
-                            <p>Корзина (0)</p>
+                            <p>Корзина (<span id="total_cart">0</span>)</p>
                         </div>
                     </div>
                 </div>
