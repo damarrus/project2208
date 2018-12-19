@@ -1,4 +1,4 @@
-<?php
+<?php 
 
 require_once '../db.php';
 
@@ -54,12 +54,13 @@ class Product
         while ($product_data = $result->fetch_assoc()) {
             $products[] = new Product($product_data['product_id']);
         }
-
+        
         return $products;
     }
 
 
 }
+
 
 // $products = Product::getAll();
 // var_dump($products);

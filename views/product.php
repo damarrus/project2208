@@ -11,16 +11,15 @@
 </div>
 
 <div class="product-description">
-    <h1>
+    <h1 class="product-title">
         <?php 
             $product = new Product($_GET['product_id']);
             echo $product->title;
-
         ?>  
     </h1>
         <h4>Артикул 380954</h4>
             <br>
-                <h3><i>
+                <h3><i class="product-price">
                         <?php 
                             $product = new Product($_GET['product_id']);
                             echo $product->price . ' руб.';
@@ -35,14 +34,16 @@
 <div class="product-size">
     <h3>РАЗМЕР</h3>
         <div class="sizes">
-            <div class="size">38</div>
-            <div class="size">39</div>
-            <div class="size">40</div>
-            <div class="size">41</div>
-            <div class="size">42</div>
+            <div class="size" value="38">38</div>
+            <div class="size" value="39">39</div>
+            <div class="size" value="40">40</div>
+            <div class="size" value="41">41</div>
+            <div class="size" value="42">42</div>
         </div>
 </div>
+<div class="product-button" id="product-button">
+    <span>Добавить в корзину</span>
+</div>
 
-    <a href="#" class="product-button">Добавить в корзину</a>
 
 <?php require_once '../templates/footer.php' ?>
