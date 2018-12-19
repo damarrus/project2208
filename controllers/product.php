@@ -1,6 +1,6 @@
 <?php
 
-require_once('../models/product.php');
+require_once('../models/Product.php');
 
 $productscol = Product::getAll();
 
