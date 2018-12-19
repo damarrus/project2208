@@ -1,5 +1,5 @@
 $(document).ready(function() {
-    
+
     $('.product-button').click(function() {
 
         function getQueryParams(qs) {
@@ -38,8 +38,12 @@ $(document).ready(function() {
             data:{
                 product_id: product_id,
             },
-            success:function(response) {
-                $("#total_cart").html(response);
+            success: function(response) {
+                var i = 0;
+                if (response = true) {
+                    i++;
+                    $("#total_cart").html(i);
+                }
             }
         });
         // var xhr = new XMLHttpRequest();
