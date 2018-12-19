@@ -1,8 +1,28 @@
 $(document).ready(function() {
     
     $('.product-button').click(function() {
-        var title = $('.product-title').text();
-        var price = $('.product-price').text();
+
+        function getQueryParams(qs) {
+            qs = qs.split("+").join(" ");
+            var params = {},
+                tokens,
+                re = /[?&]?([^=]+)=([^&]*)/g;
+        
+            while (tokens = re.exec(qs)) {
+                params[decodeURIComponent(tokens[1])]
+                    = decodeURIComponent(tokens[2]);
+            }
+        
+            return params;
+        }
+        
+        var $_GET = getQueryParams(document.location.search);
+
+        console.log($_GET);
+
+        var product_id = $_GET['product_id'];
+        // var title = $('.product-title').text();
+        // var price = $('.product-price').text();
 
         // console.log(price);
         // var data = {
@@ -16,8 +36,7 @@ $(document).ready(function() {
             method:'post',
             url:'add_to_cart.php',
             data:{
-                title: title,
-                price: price
+                product_id: product_id,
             },
             success:function(response) {
                 $("#total_cart").html(response);

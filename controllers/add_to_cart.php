@@ -1,5 +1,5 @@
 <?php
-    var_dump($_REQUEST['title']);
+    var_dump($_REQUEST['product_id']);
     die;
     $title = $data['title'];
     $price = $data['price'];
