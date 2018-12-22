@@ -44,7 +44,17 @@ a {text-decoration: none}
     line-height: 38px;
     border: 1px solid black;
     margin: 7px;
-    text-align: center
+    text-align: center;   
+}
+
+.sizes-item_e {
+    padding: 5px 12.5px;
+    line-height: 27.5px;
+    border: 1px solid white;
+    background: black;
+    color: white;
+    margin: 7px;
+    text-align: center;
 }
 
 .product-button{

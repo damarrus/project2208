@@ -1,5 +1,6 @@
 <?php require_once '../templates/header.php';
-    require_once '../models/Product.php';
+      require_once '../models/Product.php';
+      require_once '../models/Size.php';
 ?>
    
    
@@ -34,11 +35,19 @@
 <div class="product-size">
     <h3>РАЗМЕР</h3>
         <div class="sizes">
-            <div class="size" value="38">38</div>
+        
+        <?php 
+            $sizes = Size::getAllByProduct($_GET['product_id']);
+            foreach ($sizes as $size) {
+                echo '<div class="sizes-item"><p>'.$size->value.'</p></div>';
+                }
+        ?>
+       
+            <!-- <div class="size" value="38">38</div>
             <div class="size" value="39">39</div>
             <div class="size" value="40">40</div>
             <div class="size" value="41">41</div>
-            <div class="size" value="42">42</div>
+            <div class="size" value="42">42</div> -->
         </div>
 </div>
 <div class="product-button" id="product-button">

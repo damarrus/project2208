@@ -30,7 +30,7 @@ class Size
 
         $users = [];
         while ($size_data = $result->fetch_assoc()) {
-            $sizes[] = new size($size_data['size_id']);
+            $sizes[] = new Size($size_data['size_id']);
         }
 
         return $sizes;
@@ -41,7 +41,7 @@ class Size
     {
         global $mysqli;
         
-        if ($product_id = false) {
+        if ($product_id != false) {
                 $query = "SELECT size_id FROM product_sizes WHERE product_id=$product_id";
             } 
             else {
@@ -52,7 +52,7 @@ class Size
 
         $sizes = [];
         while ($size_data = $result->fetch_assoc()) {
-            $sizes[] = new size($size_data['size_id']);
+            $sizes[] = new Size($size_data['size_id']);
         }
 
         return $sizes;
@@ -61,9 +61,9 @@ class Size
 
 // // // $size = new Size(2);
 // // // var_dump($size->value);
-// // $sizes = Size::getAllByProduct(1);
+//$sizes = Size::getAllByProduct(1);
 // // // $sizes = Size::getAll();
-// // // var_dump($sizes);
+//var_dump($sizes);
 
 // // foreach ($sizes as $size) {
 // //     echo '<h1>'.$size->value.'</h1>';
