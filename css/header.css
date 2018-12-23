@@ -27,6 +27,17 @@
     background: url(../images/icons/logo.jpg) center center / contain no-repeat;
     padding: 15px;
     text-decoration: none;
+    position: relative;
+}
+.head-menu-logo::before {
+    content: "";
+    position: absolute;
+    background: url(../images/icons/ny.png) center center / contain no-repeat;
+    padding: 16px;
+    left: -13px;
+    top: -13px;
+    transform: rotate(-15deg);
+    z-index: 999999999;
 }
 .head-menu-text{
     font-family: Verdana, Arial, Helvetica, sans-serif;

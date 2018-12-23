@@ -27,12 +27,6 @@
             echo '<div class="sizes-item"><p>'.$size->value.'</p></div>';
             }
     ?>
-    
-        <!-- <div class="size" value="38">38</div>
-        <div class="size" value="39">39</div>
-        <div class="size" value="40">40</div>
-        <div class="size" value="41">41</div>
-        <div class="size" value="42">42</div> -->
     </div>
 </div>
 <div class="product-button" id="product-button">
