@@ -125,10 +125,14 @@ img {
     height: 220px;
     width: 200px;
     border: 1px solid gainsboro;
+    cursor: pointer;
 }
 
 #cards-item-title {
     padding-top: 20px;
+    cursor: pointer;
+    text-decoration: none;
+    color: black;
 }
 
 #cards-item-price {

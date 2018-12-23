@@ -50,8 +50,8 @@
         <?php
         foreach ($products as $product) {
             echo '<div class="catalog_cards-item">';
-            echo '<img src="../images/catalog/1.jpg" alt="card_1">';
-            echo '<p id="cards-item-title">'.$product->title.'</p>';
+            echo '<a href="../controllers/product.php?product_id='.$product->id.'"><img src="../images/catalog/1.jpg" alt="card_1"></a>';
+            echo '<p><a href="../controllers/product.php?product_id='.$product->id.'" id="cards-item-title">'.$product->title.'</a></p>';
             echo '<p id="cards-item-price">'.$product->price.' руб.</p>';
             echo '</div>';
         }
@@ -63,7 +63,5 @@
         <div class="catalog_pages-item">3</div>
         <div class="catalog_pages-item">4</div>
     </div>
-
-    <script src="../js/catalog.js"></script>  
 
 <?php require_once '../templates/footer.php' ?>
