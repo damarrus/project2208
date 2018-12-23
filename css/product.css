@@ -38,13 +38,12 @@ a {text-decoration: none}
     margin-bottom: 15px;
 }
 
-.size {
-    width: 38px;
-    height: 38px;
-    line-height: 38px;
+.sizes-item {
+    padding: 5px 12.5px;
+    line-height: 27.5px;
     border: 1px solid black;
     margin: 7px;
-    text-align: center;   
+    text-align: center;
 }
 
 .sizes-item_e {
