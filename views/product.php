@@ -25,7 +25,7 @@
     <?php 
         foreach ($sizes as $size) {
             echo '<div class="sizes-item"><p>'.$size->value.'</p></div>';
-            }
+        }
     ?>
     </div>
 </div>

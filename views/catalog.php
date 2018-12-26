@@ -1,22 +1,33 @@
 <?php require_once '../templates/header.php';
- require_once '../models/Category.php';?>
+ require_once '../models/Category.php';
+ require_once '../models/Collection.php'?>
 <link rel="stylesheet" href="../css/catalog.css">
+
     <div class="catalog_path">
         <a class="catalog_a" href="#">ГЛАВНАЯ</a>
         <p>/</p>
-        <a class="catalog_a" href="#">МУЖЧИНАМ</a>
+        <a class="catalog_a" href="#" style="text-transform: uppercase"> 
+            <?php 
+            echo $collection->title;
+            ?> 
+        </a>
     </div>
-    <h1 class="catalog_hello">МУЖЧИНАМ</h1>
+    <h1 class="catalog_hello">
+    <?php 
+        echo $collection->title;
+    ?> 
+    
+    </h1>
     <h2 class="catalog_descr">Все товары</h2>
     <div class="catalog_list">
         <div class="catalog_list-item">
             <p>Категория</p>
             <div class="catalog_list-item-list">
             <?php 
-            $categories = Category::getAll();
-            foreach ($categories as $cat) {
-            echo '<p>'.$cat->description.'</p>';
-                }
+                $categories = Category::getAll();
+                foreach ($categories as $cat) {
+                echo '<p>'.$cat->description.'</p>';
+            }
             ?>  
                               
             </div>

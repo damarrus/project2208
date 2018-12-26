@@ -33,8 +33,8 @@ class Category
         while ($categories_data = $result->fetch_assoc()) {
             $categories[] = new Category($categories_data['category_id']);
         }
-
         return $categories;
+        
     }
 
 }
