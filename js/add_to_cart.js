@@ -1,4 +1,14 @@
 $(document).ready(function() {
+    
+    $('.sizes-item').eq(0).addClass("sizes-item_e");
+
+    $('.sizes-item').on('click',function (){
+       
+        $(this).removeClass("sizes-item").addClass("sizes-item_e");
+        $(this).nextAll().removeClass("sizes-item_e").addClass("sizes-item");
+        $(this).prevAll().removeClass("sizes-item_e").addClass("sizes-item");
+        
+    });
 
     $('.product-button').click(function() {
 
@@ -22,7 +32,7 @@ $(document).ready(function() {
 
         var product_id = $_GET['product_id'];
 
-        var size = $('.sizes-item_e').text();
+        var size = $('.sizes-item_e').data('size-id');
         console.log(size);
 
 
@@ -43,13 +53,5 @@ $(document).ready(function() {
         });
     });
 
-    $('.sizes-item').on('click',function (){
-       
-        $(this).removeClass("sizes-item").addClass("sizes-item_e");
-        $(this).nextAll().removeClass("sizes-item_e").addClass("sizes-item");
-        $(this).prevAll().removeClass("sizes-item_e").addClass("sizes-item");
-        
-    });
-
-    
+   
 });

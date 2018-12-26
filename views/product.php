@@ -24,7 +24,7 @@
     <div class="sizes">
     <?php 
         foreach ($sizes as $size) {
-            echo '<div class="sizes-item"><p>'.$size->value.'</p></div>';
+            echo '<div class="sizes-item" data-size-id="'.$size->id.'"><p>'.$size->value.'</p></div>';
         }
     ?>
     </div>
