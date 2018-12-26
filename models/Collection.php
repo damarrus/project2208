@@ -29,16 +29,18 @@ class Collection
 
         $query = "SELECT collection_id FROM collections";
         $result = $mysqli->query($query);
-        
-        $collections = [];
-        while ($Collection_data = $result->fetch_assoc()) {
-            $collections[] = new Collection($Collection_data['collection_id']);
+        // var_dump($result);
+        $row_cnt = mysqli_num_rows($result);
+        if ($row_cnt == 0) {
+            return $error;
+        } else if ($row_cnt != 0) {
+            $collections = [];
+            while ($Collection_data = $result->fetch_assoc()) {
+                $collections[] = new Collection($Collection_data['collection_id']);
+            }
+            return $collections;
         }
-
-        return $collections;
     }
-
-
 }
     // $Collection = new Collection(2);
     // var_dump($Collection->title);
