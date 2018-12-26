@@ -58,9 +58,39 @@ class Product
         return $products;
     }
 
+    public static function create($title, $price, $category_id, $collection_id)
+    {
+        global $mysqli;
+        
+        $query = "INSERT INTO products SET 
+                    title='$title', 
+                    price=$price, 
+                    category_id=$category_id,
+                    collection_id=$collection_id
+        ";
+        $result = $mysqli->query($query);
 
+        return $mysqli->insert_id;
+    }
+
+    public function update($title, $price, $category_id, $collection_id)
+    {
+        global $mysqli;
+        
+        $query = "UPDATE products SET 
+                    title='$title', 
+                    price=$price, 
+                    category_id=$category_id,
+                    collection_id=$collection_id
+                  WHERE product_id=".$this->id;
+
+        $result = $mysqli->query($query);
+
+        return $mysqli->affected_rows;
+    }
 }
 
+// Product::create('Example product', 100, 1, 1);
 
 // $products = Product::getAll();
 // var_dump($products);
