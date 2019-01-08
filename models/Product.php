@@ -88,6 +88,18 @@ class Product
 
         return $mysqli->affected_rows;
     }
+
+    public function delete($product_id)
+    {
+        global $mysqli;
+        
+        $query = "DELETE FROM products WHERE 
+                    product_id='$product_id'
+        ";
+        $result = $mysqli->query($query);
+
+        return $mysqli->insert_id;
+    }
 }
 
 // Product::create('Example product', 100, 1, 1);
