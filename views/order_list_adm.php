@@ -26,22 +26,18 @@
         <button type="button" class="btn btn-info">Info</button>
         14.11.2018
       </div>
-      <div class="col-sm-2" id="order-block">Заказ: <span id="order-id">'.$order->id.'</div>';
+      <div class="col-sm-2" id="order-block">Заказ: <span class="order-id">'.$order->id.'</div>';
       if ($order->status == 0) {
-        echo '<button type="button" class="btn-status btn btn-primary btn-sm" data-toggle="modal" data-target="#exampleModal">Оформлен</button>';
-        // echo '<select name="product_id">';
-        //     foreach ($orders as $order) {
-        //         echo '<option value="'.$order->id.'">'.$order->status. '</option>';
-        //     }
-        // echo '</select></div>';
+        echo '<button data-status="'.$order->status.'" type="button" class="btn-status btn btn-primary btn-sm" data-toggle="modal" data-target="#exampleModal">Оформлен</button>';
+
       } else if ($order->status == 1) {
-        echo '<button type="button" class="btn-status btn btn-info btn-sm" data-toggle="modal" data-target="#exampleModal">Оплачен</button>'; 
+        echo '<button data-status="'.$order->status.'" type="button" class="btn-status btn btn-info btn-sm" data-toggle="modal" data-target="#exampleModal">Оплачен</button>'; 
       }
       else if ($order->status == 2) {
-        echo '<button type="button" class="btn-status btn btn-success btn-sm" data-toggle="modal" data-target="#exampleModal">Доставлен</button>'; 
+        echo '<button data-status="'.$order->status.'" type="button" class="btn-status btn btn-success btn-sm" data-toggle="modal" data-target="#exampleModal">Доставлен</button>'; 
       }
         else {
-          echo '<button type="button" class="btn-status btn btn-danger btn-sm" data-toggle="modal" data-target="#exampleModal">Отменен</button>';
+          echo '<button data-status="'.$order->status.'" type="button" class="btn-status btn btn-danger btn-sm" data-toggle="modal" data-target="#exampleModal">Отменен</button>';
       }
       echo '<div class="col-sm-3">Адрес доставки: '.$order->address.'</div>';
       echo '<div class="col-sm-3  font-weight-bold">Общая сумма: '.$order->total.' руб.</div>';
