@@ -89,16 +89,23 @@ class Product
         return $mysqli->affected_rows;
     }
 
-    public function delete($product_id)
+    public function delete()
     {
         global $mysqli;
-        
-        $query = "DELETE FROM products WHERE 
-                    product_id='$product_id'
-        ";
-        $result = $mysqli->query($query);
+                var_dump($mysqli->error);
 
-        return $mysqli->insert_id;
+        $query_sizes = "DELETE FROM product_sizes
+                        WHERE product_id=".$this->id;
+        $query_order = "DELETE FROM order_products
+                        WHERE product_id=".$this->id;
+        $query = "DELETE FROM products
+                  WHERE product_id=".$this->id;
+
+        
+        $result = $mysqli->query($query_sizes);
+        $result = $mysqli->query($query_order);
+        $result = $mysqli->query($query);
+        return true;
     }
 }
 
