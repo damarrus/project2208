@@ -26,12 +26,18 @@
                         <label for="InputUserId">ID пользователя:</label>
                         <input type="number" class="form-control" id="InputUserId" name="user_id">
                     </div>
-                    <div class="form-group">
-                        <label class="before-form-checkbox">Выберите товар:</label>
+                    <div class="form-group product-price">
+                        <label class="before-form-select">Выберите товар:</label>
+                        <select class="form-select form-control" name="product_id">
+                            <option value="0" data-price="0"></option>
                         <?php foreach ($products as $product) {
-                            echo '<label class="form-checkbox-label">'.$product->title.'</label><input type="checkbox" class="form-checkbox" name="product_id[]" value="'.$product->id.'" data-price="'.$product->price.'">';
+                            echo '<option value="'.$product->id.'" data-price="'.$product->price.'">'.$product->title.'</option>';
                         } ?>
+                        </select>
+                        <label class="before-form-price">Цена:</label>
+                        <input type="number" class="form-control form-price" name="price">
                     </div>
+                    <input type="button" class="btn btn-block" id="AddProduct" value="Добавить товар в заказ">
                     <div class="form-group">
                         <label for="InputTotal">Сумма заказа:</label>
                         <input type="text" class="form-control" id="InputTotal" name="total">

@@ -66,7 +66,7 @@ class Order
         ];
     }
 
-    public static function create($status, $adress, $user_id, $total, $product_ids)
+    public static function create($status, $adress, $user_id, $products)
     {
         global $mysqli;
 
@@ -74,21 +74,21 @@ class Order
                     status=$status, 
                     address='$adress', 
                     user_id=$user_id,
-                    total=$total
+                    total=0
         ";
         $result = $mysqli->query($query);
 
         $insert_id = $mysqli->insert_id;
 
-        foreach ($product_ids as $product_id) {
-        $query = "INSERT INTO order_products SET 
-                    order_id=$insert_id, 
-                    product_id=$product_id, 
-                    size_id=0,
-                    price=0,
-                    count=0
-        ";
-        $result = $mysqli->query($query);
+        foreach ($products as $product) {
+            $query = "INSERT INTO order_products SET 
+                        order_id=$insert_id, 
+                        product_id={$product['product_id']}, 
+                        size_id=0,
+                        price={$product['price']},
+                        count=0
+            ";
+            $result = $mysqli->query($query);
         }
 
         return $insert_id;

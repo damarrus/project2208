@@ -77,15 +77,20 @@ footer {
     z-index: 999999999;
 }
 
-.before-form-checkbox {
-    width: 100%;
+
+.before-form-select {
+    margin: 10px 10px 10px 0;
 }
 
-.form-checkbox-label {
-    width: 40%;
+.before-form-price {
+    margin: 10px;
 }
 
-.form-checkbox {
-   width: 5%;
-   margin: 0px 10px;
+.form-price {
+    width: 45%;
+}
+
+.product-price {
+    display: flex;
+    align-items: center;
 }
