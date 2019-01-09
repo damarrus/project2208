@@ -28,15 +28,15 @@
       </div>
       <div class="col-sm-2">Заказ: '.$order->id.'</div>';
       if ($order->status == 0) {
-        echo '<div class="col-sm-2 font-weight-bold text-muted">Оофрмлен</div>';
+        echo '<div class="col-sm-2 font-weight-bold text-muted status-btn">Оформлен</div>';
       } else if ($order->status == 1) {
-        echo '<div class="col-sm-2 font-weight-bold text-info">Оплачен</div>'; 
+        echo '<div class="col-sm-2 font-weight-bold text-info status-btn">Оплачен</div>'; 
       }
       else if ($order->status == 2) {
-        echo '<div class="col-sm-2 font-weight-bold text-success">Доставлен</div>'; 
+        echo '<div class="col-sm-2 font-weight-bold text-success status-btn">Доставлен</div>'; 
       }
         else {
-          echo '<div class="col-sm-2 font-weight-bold text-danger">Отменен</div>';
+          echo '<div class="col-sm-2 font-weight-bold text-danger status-btn">Отменен</div>';
       }
       echo '<div class="col-sm-3">Адрес доставки: '.$order->address.'</div>';
       echo '<div class="col-sm-3  font-weight-bold">Общая сумма: '.$order->total.' руб.</div>';

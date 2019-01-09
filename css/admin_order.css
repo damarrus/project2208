@@ -8,3 +8,25 @@
 .cutting_line{
     background: url(../images/icons/cutting_line.png) repeat-x scroll 0 bottom rgba(0, 0, 0, 0);
 }
+
+.status-btn {
+    cursor: pointer;
+}
+
+h2 {
+    padding: 20px;
+}
+
+button {
+    margin: 20px 0;
+}
+
+h4 {
+    padding-top: 20px;
+}
+
+.form_delete {
+    box-sizing: border-box;
+    padding: 50px 300px;
+
+}
