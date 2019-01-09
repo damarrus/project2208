@@ -76,3 +76,16 @@ footer {
     transform: rotate(-15deg);
     z-index: 999999999;
 }
+
+.before-form-checkbox {
+    width: 100%;
+}
+
+.form-checkbox-label {
+    width: 40%;
+}
+
+.form-checkbox {
+   width: 5%;
+   margin: 0px 10px;
+}
