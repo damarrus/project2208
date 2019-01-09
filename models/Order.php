@@ -65,13 +65,13 @@ class Order
             'count' => $count['count']
         ];
     }
-    public function status($status)
+    public function set_status($status)
     {
         global $mysqli;
         
         $query = "UPDATE orders SET
                     status='$status'
-                    WHERE order_id=$id";
+                    WHERE order_id=".$this->id;
         $result = $mysqli->query($query);
         return $mysqli->affected_rows;
     }

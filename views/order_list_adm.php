@@ -26,22 +26,22 @@
         <button type="button" class="btn btn-info">Info</button>
         14.11.2018
       </div>
-      <div class="col-sm-2">Заказ: '.$order->id.'</div>';
+      <div class="col-sm-2" id="order-block">Заказ: <span id="order-id">'.$order->id.'</div>';
       if ($order->status == 0) {
-        echo '<button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#exampleModal">Оформлен</button>';
+        echo '<button type="button" class="btn-status btn btn-primary btn-sm" data-toggle="modal" data-target="#exampleModal">Оформлен</button>';
         // echo '<select name="product_id">';
         //     foreach ($orders as $order) {
         //         echo '<option value="'.$order->id.'">'.$order->status. '</option>';
         //     }
         // echo '</select></div>';
       } else if ($order->status == 1) {
-        echo '<button type="button" class="btn btn-info btn-sm" data-toggle="modal" data-target="#exampleModal">Оплачен</button>'; 
+        echo '<button type="button" class="btn-status btn btn-info btn-sm" data-toggle="modal" data-target="#exampleModal">Оплачен</button>'; 
       }
       else if ($order->status == 2) {
-        echo '<button type="button" class="btn btn-success btn-sm" data-toggle="modal" data-target="#exampleModal">Доставлен</button>'; 
+        echo '<button type="button" class="btn-status btn btn-success btn-sm" data-toggle="modal" data-target="#exampleModal">Доставлен</button>'; 
       }
         else {
-          echo '<button type="button" class="btn btn-danger btn-sm" data-toggle="modal" data-target="#exampleModal">Отменен</button>';
+          echo '<button type="button" class="btn-status btn btn-danger btn-sm" data-toggle="modal" data-target="#exampleModal">Отменен</button>';
       }
       echo '<div class="col-sm-3">Адрес доставки: '.$order->address.'</div>';
       echo '<div class="col-sm-3  font-weight-bold">Общая сумма: '.$order->total.' руб.</div>';
@@ -130,20 +130,29 @@
           </button>
         </div>
         <div class="modal-body">
-          <?php echo '<select name="product_id"  class="form-control">';
+          <!-- <?php echo '<select name="product_id"  class="form-control">';
                 foreach ($orders as $order) {
                     echo '<option value="'.$order->id.'">'.$order->status. '</option>';
                 }
                 echo '</select>';
-          ?>
+          ?> -->
+          <select name="status_list" class="form-control">
+            <option value="0">Оформлен</option>
+            <option value="1">Оплачен</option>
+            <option value="2">Доставлен</option>
+            <option value="3">Отменен</option>
+          </select>
+          <input id="status_order_id" type="hidden" name="order_id" value="0">
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-secondary" data-dismiss="modal">Закрыть</button>
-          <button type="submit" class="btn btn-primary">Сохранить</button>
+          <button id="status_order_btn" type="submit" class="btn btn-primary">Сохранить</button>
         </div>
       </div>
     </div>
   </div>
 </form>
+<script src="../lib/jquery-3.3.1.min.js"></script>
+<script src="../js/order_status.js"></script>
 
 <?php require_once '../templates/footer_admin.php' ?>
