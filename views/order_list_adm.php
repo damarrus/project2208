@@ -28,15 +28,20 @@
       </div>
       <div class="col-sm-2">Заказ: '.$order->id.'</div>';
       if ($order->status == 0) {
-        echo '<div class="col-sm-2 font-weight-bold text-muted status-btn">Оформлен</div>';
+        echo '<button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#exampleModal">Оформлен</button>';
+        // echo '<select name="product_id">';
+        //     foreach ($orders as $order) {
+        //         echo '<option value="'.$order->id.'">'.$order->status. '</option>';
+        //     }
+        // echo '</select></div>';
       } else if ($order->status == 1) {
-        echo '<div class="col-sm-2 font-weight-bold text-info status-btn">Оплачен</div>'; 
+        echo '<button type="button" class="btn btn-info btn-sm" data-toggle="modal" data-target="#exampleModal">Оплачен</button>'; 
       }
       else if ($order->status == 2) {
-        echo '<div class="col-sm-2 font-weight-bold text-success status-btn">Доставлен</div>'; 
+        echo '<button type="button" class="btn btn-success btn-sm" data-toggle="modal" data-target="#exampleModal">Доставлен</button>'; 
       }
         else {
-          echo '<div class="col-sm-2 font-weight-bold text-danger status-btn">Отменен</div>';
+          echo '<button type="button" class="btn btn-danger btn-sm" data-toggle="modal" data-target="#exampleModal">Отменен</button>';
       }
       echo '<div class="col-sm-3">Адрес доставки: '.$order->address.'</div>';
       echo '<div class="col-sm-3  font-weight-bold">Общая сумма: '.$order->total.' руб.</div>';
@@ -113,5 +118,32 @@
     </form>
   </div> 
 </div>
+
+<form method="POST" action="order_status_update.php">
+  <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Изменить статус заказа</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <?php echo '<select name="product_id"  class="form-control">';
+                foreach ($orders as $order) {
+                    echo '<option value="'.$order->id.'">'.$order->status. '</option>';
+                }
+                echo '</select>';
+          ?>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Закрыть</button>
+          <button type="submit" class="btn btn-primary">Сохранить</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</form>
 
 <?php require_once '../templates/footer_admin.php' ?>

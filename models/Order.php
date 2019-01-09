@@ -65,7 +65,16 @@ class Order
             'count' => $count['count']
         ];
     }
-
+    public function status($status)
+    {
+        global $mysqli;
+        
+        $query = "UPDATE orders SET
+                    status='$status'
+                    WHERE order_id=$id";
+        $result = $mysqli->query($query);
+        return $mysqli->affected_rows;
+    }
 }
 
 // $order_col = Order::getAll(0,0);

@@ -10,15 +10,15 @@
   </ol>
 </nav>
 <form method="POST" action="product_create.php">
-    <h4>Название</h4> <input class="form-control" type="text" name="title">
-    <h4>Цена </h4><input class="form-control" type="number" name="price">
+    <h4>Название</h4> <input class="form-control" type="text" name="title" required>
+    <h4>Цена </h4><input class="form-control" type="number" name="price" required>
     <h4>Категория </h4>
     <select class="form-control" name="category_id">
         <?php foreach ($categories as $category) {
             echo '<option value="'.$category->id.'">'.$category->title.'</option>';
         } ?>
     </select>
-    <h4>Коллекция <input class="form-control" type="number" name="collection_id"></h4>
+    <h4>Коллекция <input class="form-control" type="number" name="collection_id" required></h4>
     <button type="submit" class="btn btn-primary">Создать товар</button>
 </form>
 
