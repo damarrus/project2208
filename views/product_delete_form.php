@@ -26,7 +26,7 @@
                         </button>
                     </div>
                     <div class="modal-body">
-                        Вы уверены?
+                        Соглашаясь, вы удалите все заказы с данным продуктов и размеры для данного продукта.
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Нет</button>
@@ -37,6 +37,10 @@
         </div>
         <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#exampleModal">Удалить товар</button>
     </form>
+    <a href="product_create_form.php" class="btn btn-outline-primary btn-sm">Создать товар</a>
+    <a href="product_update_form.php?product_id=1" class="btn btn-outline-success btn-sm">Изменить товар</a>
+
+
 </div>
 
 <?php require_once '../templates/footer_admin.php' ?>
