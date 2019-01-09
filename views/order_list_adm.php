@@ -136,11 +136,11 @@
                 }
                 echo '</select>';
           ?> -->
-          <select name="status_list" class="form-control">
-            <option value="0">Оформлен</option>
-            <option value="1">Оплачен</option>
-            <option value="2">Доставлен</option>
-            <option value="3">Отменен</option>
+          <select id="status_list" name="status_list" class="form-control">
+            <option id="status_0" value="0">Оформлен</option>
+            <option id="status_1" value="1">Оплачен</option>
+            <option id="status_2" value="2">Доставлен</option>
+            <option id="status_3" value="3">Отменен</option>
           </select>
           <input id="status_order_id" type="hidden" name="order_id" value="0">
         </div>
