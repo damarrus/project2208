@@ -11,7 +11,8 @@
 <hr>
 <div class="container">
         <div class="row justify-content-center">
-            <div class="col-sm-7" id="rel">
+            <div class="col-sm-8" id="rel">
+                <div class="receiver"></div>
                 <form id="create" method="POST" action="order_create.php">
                     <h1>ФОРМА ДЛЯ СОЗДАНИЯ ЗАКАЗА</h1>
                     <div class="form-group">
@@ -27,17 +28,21 @@
                         <input type="number" class="form-control" id="InputUserId" name="user_id">
                     </div>
                     <div class="form-group product-price">
-                        <label class="before-form-select">Выберите товар:</label>
+                        <label class="before-form-select">Товар:</label>
                         <select class="form-select form-control" name="product_id">
                             <option value="0" data-price="0"></option>
                         <?php foreach ($products as $product) {
                             echo '<option value="'.$product->id.'" data-price="'.$product->price.'">'.$product->title.'</option>';
                         } ?>
                         </select>
+                        <label class="before-form-size">Размер:</label>
+                        <select class="form-size form-control" name="size_id">
+                            <option class="size-option" value="0"></option>
+                        </select>
                         <label class="before-form-price">Цена:</label>
                         <input type="number" class="form-control form-price" name="price">
                     </div>
-                    <input type="button" class="btn btn-block" id="AddProduct" value="Добавить товар в заказ">
+                    <input type="button" class="form-group btn btn-block" id="AddProduct" value="Добавить товар в заказ">
                     <div class="form-group">
                         <label for="InputTotal">Сумма заказа:</label>
                         <input type="text" class="form-control" id="InputTotal" name="total">

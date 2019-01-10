@@ -1,10 +1,28 @@
 $(document).ready(function() {
 
     var price = 0;
+    var id = 0;
     
     $(".form-select").change(function(){
         price = $(".form-select option:selected").data('price'); 
         $(this).parent().find('input').attr('placeholder',price);
+        id =  $(this).val();
+        console.log(id);
+
+        $.ajax({
+            method:'POST',
+            url:'order_create_product_size.php',
+            data:{
+                id: id,
+            },
+            success: function(response) {
+                if (response) {
+                    $('#create').find($('.size-option')).html(response);
+                
+                   console.log(response);
+                }
+            }
+        });
     })
 
     $("#AddProduct").on('click',function(){
@@ -12,9 +30,10 @@ $(document).ready(function() {
         new_product.find('input').attr('placeholder','');
         $(this).prev().after(new_product);
         new_product.change(function(){
+            id = new_product.find("option:selected").val(); 
             price = new_product.find("option:selected").data('price'); 
             new_product.find('input').attr('placeholder',price);
-            console.log(price);
+            console.log(id);
         })
     })
 
@@ -43,7 +62,11 @@ $(document).ready(function() {
             },
             success: function(response) {
                 if (response) {
-                    console.log('Заказ добавлен!');
+                    $('.receiver').animate({
+                        top:'-90px',
+                        'opacity':1
+                    },1000);
+                    $('.receiver').html('ВАШ ЗАКАЗ ДОБАВЛЕН!');
                 }
             }
         });
