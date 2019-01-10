@@ -17,9 +17,16 @@ $(document).ready(function() {
             },
             success: function(response) {
                 if (response) {
-                    $('#create').find($('.size-option')).html(response);
+                    data = JSON.parse(response);
+                    $(".form-size").find('.size-option').remove();
+                    var i = 0;
+                    $(data).each(function(){
+                        $("#create").find($(".form-size")).append($("<option></option>", {value: data[i]['id'], class: "size-option", text: data[i]['value']}));
+                        i++;
+                    })
+
                 
-                   console.log(response);
+                   console.log(data[0]['id']);
                 }
             }
         });

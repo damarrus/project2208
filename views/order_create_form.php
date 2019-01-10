@@ -37,7 +37,7 @@
                         </select>
                         <label class="before-form-size">Размер:</label>
                         <select class="form-size form-control" name="size_id">
-                            <option class="size-option" value="0"></option>
+                            <option value="0"></option>
                         </select>
                         <label class="before-form-price">Цена:</label>
                         <input type="number" class="form-control form-price" name="price">
