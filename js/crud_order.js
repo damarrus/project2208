@@ -21,12 +21,9 @@ $(document).ready(function() {
                     $(".form-size").find('.size-option').remove();
                     var i = 0;
                     $(data).each(function(){
-                        $("#create").find($(".form-size")).append($("<option></option>", {value: data[i]['id'], class: "size-option", text: data[i]['value']}));
+                        $(".form-size").append($("<option></option>", {value: data[i]['id'], class: "size-option", text: data[i]['value']}));
                         i++;
                     })
-
-                
-                   console.log(data[0]['id']);
                 }
             }
         });
@@ -40,7 +37,25 @@ $(document).ready(function() {
             id = new_product.find("option:selected").val(); 
             price = new_product.find("option:selected").data('price'); 
             new_product.find('input').attr('placeholder',price);
-            console.log(id);
+
+            $.ajax({
+                method:'POST',
+                url:'order_create_product_size.php',
+                data:{
+                    id: id,
+                },
+                success: function(response) {
+                    if (response) {
+                        data = JSON.parse(response);
+                        new_product.find('.size-option').remove();
+                        var i = 0;
+                        $(data).each(function(){
+                            new_product.find($(".form-size")).append($("<option></option>", {value: data[i]['id'], class: "new-size-option", text: data[i]['value']}));
+                            i++;
+                        })
+                    }
+                }
+            });
         })
     })
 
