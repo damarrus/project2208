@@ -1,7 +1,7 @@
 <?php require_once '../templates/header.php' ?>
 <link rel="stylesheet" href="../css/cart.css">
 <div class="main">
-    <div class="hr"></div>
+    <!-- <div class="hr"></div> -->
     <div class="main-text">
         <h1 class="main-title">Ваша корзина</h1>
         <h2 class="main-description">Товары резервируются на ограниченное время</h2>
@@ -18,73 +18,34 @@
             <td class="main-cart-column-title">Стоимость</th>
             <td class="main-cart-column-title">Удалить</th>
         </tr>
-        <tr>
-            <td>
-                <div class="main-cart-product-block-img"></div>
-            </td>
-            <td>
-                <div class="main-cart-product-block-name">
-                    <p class="main-cart-product-block-name-title">Куртка синяя</p>
-                    <p class="main-cart-product-block-name-articul">арт. 123441</p>
-                </div>
-            </td>
-            <td class="tac">39</td>
-            <td class="tac"><div class="amount">1
-                <div class="amount-btn">
-                    <div class="amount-btn-plus">+</div>
-                    <div class="amount-btn-minus">-</div>
-                </div>
-            </div>
-            </td>
-            <td class="tac">3800 руб.</td>
-            <td>
-                <div class="main-cart-product-block-delete"></div>
-            </td>
-        </tr>
-        <tr>
-            <td>
-                <div class="main-cart-product-block-img"></div>
-            </td>
-            <td>
-                <div class="main-cart-product-block-name">
-                    <p class="main-cart-product-block-name-title">Куртка синяя</p>
-                    <p class="main-cart-product-block-name-articul">арт. 123441</p>
-                </div>
-            </td>
-            <td class="tac">39</td>
-            <td class="tac"><div class="amount">1
-                <div class="amount-btn">
-                    <div class="amount-btn-plus">+</div>
-                    <div class="amount-btn-minus">-</div>
-                </div>
-            </div>
-            <td class="tac">3800 руб.</td>
-            <td>
-                <div class="main-cart-product-block-delete"></div>
-            </td>
-        </tr>
-        <tr>
-            <td>
-                <div class="main-cart-product-block-img"></div>
-            </td>
-            <td>
-                <div class="main-cart-product-block-name">
-                    <p class="main-cart-product-block-name-title">Куртка синяя</p>
-                    <p class="main-cart-product-block-name-articul">арт. 123441</p>
-                </div>
-            </td>
-            <td class="tac">39</td>
-            <td class="tac"><div class="amount">1
-                <div class="amount-btn">
-                    <div class="amount-btn-plus">+</div>
-                    <div class="amount-btn-minus">-</div>
-                </div>
-            </div>
-            <td class="tac">3800 руб.</td>
-            <td>
-                <div class="main-cart-product-block-delete"></div>
-            </td>
-        </tr>                
+            <?php 
+                foreach ($products as $product) {
+                    echo '
+                    <tr>
+                        <td>
+                            <div class="main-cart-product-block-img"></div>
+                        </td>
+                        <td>
+                            <div class="main-cart-product-block-name">
+                                <p class="main-cart-product-block-name-title">' . $product->title . '</p>
+                                <p class="main-cart-product-block-name-articul">арт. 123441</p>
+                            </div>
+                        </td>
+                        <td class="tac"></td>
+                        <td class="tac"><div class="amount">1
+                            <div class="amount-btn">
+                                <div class="amount-btn-plus">+</div>
+                                <div class="amount-btn-minus">-</div>
+                            </div>
+                        </div>
+                        </td>
+                        <td class="tac">' . $product->price . ' руб.</td>
+                        <td>
+                            <div class="main-cart-product-block-delete"></div>
+                        </td>
+                    </tr>';
+                } 
+            ?>
     </table>
     <div class="main-cart-total">
         <div class="main-cart-total-text">Итого: <span class="main-cart-total-text-sum">12500 руб.</span></div>
