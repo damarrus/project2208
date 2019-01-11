@@ -48,6 +48,7 @@ $(document).ready(function() {
                     if (response) {
                         data = JSON.parse(response);
                         new_product.find('.size-option').remove();
+                        new_product.find('.new-size-option').remove();
                         var i = 0;
                         $(data).each(function(){
                             new_product.find($(".form-size")).append($("<option></option>", {value: data[i]['id'], class: "new-size-option", text: data[i]['value']}));
