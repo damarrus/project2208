@@ -20,6 +20,7 @@
       <input type="date" class="form-control mr-sm-2" id="dateTo">
       <button type="submit" class="btn btn-primary">Показать</button>
   </form>
+  
   <?php foreach ($products as $product) {
     echo '<div class="table-responsive-md table-striped">
             <div class="row">
@@ -32,7 +33,6 @@
             <div class="col-sm-3  font-weight-bold">Цена: '.$product->price.' руб.</div>
             <button class="btn-prod btn btn-outline-success btn-sm" data-toggle="modal" data-target="#changeProd">Изменить</button>
             <button type="button" class=" btn-prod btn btn-danger" data-toggle="modal" data-target="#deleteProd">Удалить</button>
-            
         </div>
     </div>
   <div class="cutting_line mb-5 pt-2"></div>';
@@ -60,6 +60,7 @@
                 <div class="modal-body">
                     Соглашаясь, вы удалите все заказы с данным продуктов и размеры для данного продукта.
                 </div>
+                
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Нет</button>
                     <button type="submit" class="btn  btn-outline-danger">Да, удалить</button>
