@@ -33,7 +33,7 @@ $(document).ready(function() {
         var new_product = $(this).prev().clone();
         new_product.find('input').attr('placeholder','');
         $(this).prev().after(new_product);
-        new_product.change(function(){
+        new_product.find('.form-select').change(function(){
             id = new_product.find("option:selected").val(); 
             price = new_product.find("option:selected").data('price'); 
             new_product.find('input').attr('placeholder',price);
@@ -68,9 +68,10 @@ $(document).ready(function() {
         var products = [];
 
         $(".form-select").each(function(){
+            var price_source = $(this).parent().find('input');
             products.push({
                 product_id: $(this).val(),
-                price: $(this).parent().find('input').attr('placeholder')
+                price: price_source.val() ? price_source.val() : price_source.attr('placeholder')
             });
         })
 
