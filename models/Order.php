@@ -84,9 +84,9 @@ class Order
             $query = "INSERT INTO order_products SET 
                         order_id=$insert_id, 
                         product_id={$product['product_id']}, 
-                        size_id=0,
+                        size_id={$product['size_id']},
                         price={$product['price']},
-                        count=0
+                        count={$product['count']}
             ";
             $result = $mysqli->query($query);
         }

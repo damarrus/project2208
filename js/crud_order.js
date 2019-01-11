@@ -18,6 +18,7 @@ $(document).ready(function() {
             success: function(response) {
                 if (response) {
                     data = JSON.parse(response);
+                    $(".form-size").find('.size-option-zero').remove();
                     $(".form-size").find('.size-option').remove();
                     var i = 0;
                     $(data).each(function(){
@@ -33,6 +34,7 @@ $(document).ready(function() {
         var new_product = $(this).prev().clone();
         new_product.find('input').attr('placeholder','');
         $(this).prev().after(new_product);
+        new_product.find('.form-size').empty();
         new_product.find('.form-select').change(function(){
             id = new_product.find("option:selected").val(); 
             price = new_product.find("option:selected").data('price'); 
@@ -68,10 +70,14 @@ $(document).ready(function() {
         var products = [];
 
         $(".form-select").each(function(){
-            var price_source = $(this).parent().find('input');
+            var price_source = $(this).parent().find('.form-price');
+            var count_source = $(this).parent().find('.form-count');
+
             products.push({
                 product_id: $(this).val(),
-                price: price_source.val() ? price_source.val() : price_source.attr('placeholder')
+                size_id: $(this).parent().find('.form-size').val(),
+                price: price_source.val() ? price_source.val() : price_source.attr('placeholder'),
+                count: count_source.val(),
             });
         })
 

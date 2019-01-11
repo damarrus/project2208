@@ -37,10 +37,12 @@
                         </select>
                         <label class="before-form-size">Размер:</label>
                         <select class="form-size form-control" name="size_id">
-                            <option value="0"></option>
+                            <option value="0" class="size-option-zero"></option>
                         </select>
                         <label class="before-form-price">Цена:</label>
                         <input type="number" class="form-control form-price" name="price">
+                        <label class="before-form-count">Шт:</label>
+                        <input type="number" class="form-control form-count" name="count" value="1">
                     </div>
                     <input type="button" class="form-group btn btn-block" id="AddProduct" value="Добавить товар в заказ">
                     <div class="form-group">

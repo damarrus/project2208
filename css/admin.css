@@ -89,9 +89,11 @@ footer {
 .before-form-size {
     margin: 10px;
 }
-
-.form-price {
-    width: 45%;
+.before-form-count {
+    margin: 10px;
+}
+.form-size, .form-count {
+    width: 75%;
 }
 
 .product-price {
