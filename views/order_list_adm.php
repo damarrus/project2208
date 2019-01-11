@@ -20,29 +20,33 @@
       <button type="submit" class="btn btn-primary">Показать</button>
   </form>
   <?php foreach ($orders as $order) {
-    echo '<div class="table-responsive-md table-striped">
-      <div class="row">
-      <div class="col-sm-2">
-        <button type="button" class="btn btn-info">Info</button>
-        14.11.2018
-      </div>
-      <div class="col-sm-2">Заказ: '.$order->id.'</div>';
-      if ($order->status == 0) {
-        echo '<div class="col-sm-2 font-weight-bold text-muted status-btn">Оформлен</div>';
-      } else if ($order->status == 1) {
-        echo '<div class="col-sm-2 font-weight-bold text-info status-btn">Оплачен</div>'; 
-      }
-      else if ($order->status == 2) {
-        echo '<div class="col-sm-2 font-weight-bold text-success status-btn">Доставлен</div>'; 
-      }
-        else {
-          echo '<div class="col-sm-2 font-weight-bold text-danger status-btn">Отменен</div>';
-      }
-      echo '<div class="col-sm-3">Адрес доставки: '.$order->address.'</div>';
-      echo '<div class="col-sm-3  font-weight-bold">Общая сумма: '.$order->total.' руб.</div>';
-      echo ' </div>
+echo '<div class="table-responsive-md table-striped">
+        <div class="row">
+          <div class="col-sm-2">
+            <button type="button" data-id="'.$order->id.'" class="btn btn-info btn-order-id">Info</button>
+            14.11.2018
+          </div>
+          <div class="col-sm-2">Заказ: '.$order->id.'</div>';
+          if ($order->status == 0) {
+            echo '<div class="col-sm-2 font-weight-bold text-muted status-btn">Оформлен</div>';
+          } else if ($order->status == 1) {
+            echo '<div class="col-sm-2 font-weight-bold text-info status-btn">Оплачен</div>'; 
+          }
+          else if ($order->status == 2) {
+            echo '<div class="col-sm-2 font-weight-bold text-success status-btn">Доставлен</div>'; 
+          }
+            else {
+              echo '<div class="col-sm-2 font-weight-bold text-danger status-btn">Отменен</div>';
+          }
+        echo '<div class="col-sm-3">Адрес доставки: '.$order->address.'</div>';
+        echo '<div class="col-sm-3  font-weight-bold">Общая сумма: '.$order->total.' руб.</div>';
+        echo ' </div>
         
       </div>
+      <div data-tabl="'.$order->id.'" class="order_products">
+      
+      </div>
+
   <div class="cutting_line mb-5 pt-2"></div>';
 }
 ?> <!--конец контейнера с таблицей -->
