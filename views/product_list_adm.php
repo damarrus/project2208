@@ -60,7 +60,7 @@
                 <div class="modal-body">
                     Соглашаясь, вы удалите все заказы с данным продуктов и размеры для данного продукта.
                 </div>
-                
+
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Нет</button>
                     <button type="submit" class="btn  btn-outline-danger">Да, удалить</button>
@@ -79,7 +79,15 @@
                 </button>
             </div>
             <div class="modal-body">
-                Соглашаясь, вы удалите все заказы с данным продуктов и размеры для данного продукта.
+                <h6>Название</h6> <input class="form-control" type="text" name="title"><br>
+                <h6>Цена </h6><input class="form-control" type="number" name="price"><br>
+                <h6>Категория </h6>
+                <select class="form-control" name="category_id">
+                    <?php foreach ($categories as $category) {
+                        echo '<option value="'.$category->id.'">'.$category->title.'</option>';
+                    } ?>
+                </select><br>
+                <h6>Коллекция <input class="form-control" type="number" name="collection_id"></h6>
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Отмена</button>
