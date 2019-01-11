@@ -47,7 +47,7 @@
                     <input type="button" class="form-group btn btn-block" id="AddProduct" value="Добавить товар в заказ">
                     <div class="form-group">
                         <label for="InputTotal">Сумма заказа:</label>
-                        <input type="text" class="form-control" id="InputTotal" name="total">
+                        <label id="InputTotal"></label>
                     </div>
                     <button type="submit" class="btn btn-block gold">Создать заказ</button>
                 </form>

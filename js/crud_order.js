@@ -7,7 +7,6 @@ $(document).ready(function() {
         price = $(".form-select option:selected").data('price'); 
         $(this).parent().find('input').attr('placeholder',price);
         id =  $(this).val();
-        console.log(id);
 
         $.ajax({
             method:'POST',
@@ -31,10 +30,22 @@ $(document).ready(function() {
     })
 
     $("#AddProduct").on('click',function(){
+        
         var new_product = $(this).prev().clone();
+        new_product.find('.form-price').val('');
+        new_product.find('.form-count').val('1');
+
+        var price_source_total = $(this).prev().parent().find('.form-price');
+        var count_source_total = $(this).prev().parent().find('.form-count');
+        var price_total = price_source_total.val() ? price_source_total.val() : price_source_total.attr('placeholder');
+        var count_total = count_source_total.val();
+        var total_zero = price_total*count_total;
+
+        $('#InputTotal').text(total_zero);
         new_product.find('input').attr('placeholder','');
         $(this).prev().after(new_product);
         new_product.find('.form-size').empty();
+
         new_product.find('.form-select').change(function(){
             id = new_product.find("option:selected").val(); 
             price = new_product.find("option:selected").data('price'); 
