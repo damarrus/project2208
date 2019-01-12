@@ -3,10 +3,13 @@ $(document).ready(function() {
     var price = 0;
     var id = 0;
     
-    $(".form-select").change(function(){
-        price = $(".form-select option:selected").data('price'); 
-        $(this).parent().find('input').attr('placeholder',price);
+    $(".product-select").change(function(){
+        price = $(".product-select option:selected").data('price'); 
+        $(this).parent().find('.form-price').attr('placeholder',price);
+        $(this).parent().find('.form-price').val('');
         id =  $(this).val();
+
+        countTotal();
 
         $.ajax({
             method:'POST',
@@ -33,26 +36,27 @@ $(document).ready(function() {
         
         var new_product = $(this).prev().clone();
         new_product.find('.form-price').val('');
+        new_product.find('.form-count').attr('placeholder','');
         new_product.find('.form-count').val('1');
 
-        // var price_source_total = $(this).prev().parent().find('.form-price');
-        // var count_source_total = $(this).prev().parent().find('.form-count');
-        // var price_total = price_source_total.val() ? price_source_total.val() : price_source_total.attr('placeholder');
-        // var count_total = count_source_total.val();
-        // var total_zero = price_total*count_total;
-
-        countTotal();
-
-        $('#InputTotal').text(total_zero);
         new_product.find('input').attr('placeholder','');
         $(this).prev().after(new_product);
         new_product.find('.form-size').empty();
 
+        new_product.find('.form-price').change(function(){
+            countTotal();
+        });
 
-        new_product.find('.form-select').change(function(){
+        new_product.find('.form-count').change(function(){
+            countTotal();
+        });
+
+        new_product.find('.product-select').change(function(){
             id = new_product.find("option:selected").val(); 
             price = new_product.find("option:selected").data('price'); 
             new_product.find('input').attr('placeholder',price);
+
+            countTotal();
 
             $.ajax({
                 method:'POST',
@@ -69,12 +73,20 @@ $(document).ready(function() {
                         $(data).each(function(){
                             new_product.find($(".form-size")).append($("<option></option>", {value: data[i]['id'], class: "new-size-option", text: data[i]['value']}));
                             i++;
-                        })
+                        });
                     }
                 }
             });
-        })
-    })
+        });
+    });
+
+    $(".form-price").change(function(){
+        countTotal();
+    });
+
+    $(".form-count").change(function(){
+        countTotal();
+    });
 
     $("#create").submit(function(){
 
@@ -83,7 +95,7 @@ $(document).ready(function() {
         var user_id = $("#InputUserId").val();
         var products = [];
 
-        $(".form-select").each(function(){
+        $(".product-select").each(function(){
             var price_source = $(this).parent().find('.form-price');
             var count_source = $(this).parent().find('.form-count');
 
@@ -120,5 +132,22 @@ $(document).ready(function() {
 });
 
 function countTotal() {
-    
+
+    var totals = [];
+
+    $('.form-price').each(function(){
+        totals.push({
+            price: $(this).val() ? $(this).val() : $(this).attr('placeholder'),
+            count: $(this).parent().find('.form-count').val() ? $(this).parent().find('.form-count').val() : 0,
+        });
+    });
+
+    var totalprice = 0;
+
+    $.each(totals, function(index,total) {
+        totalprice = totalprice + total['price']*total['count'];
+    });
+
+    $('#InputTotal').text(totalprice);
+
 }

@@ -25,11 +25,16 @@
                     </div>
                     <div class="form-group">
                         <label for="InputUserId">ID пользователя:</label>
-                        <input type="number" class="form-control" id="InputUserId" name="user_id">
+                        <select class="form-select form-control" id="InputUserId" name="user_id">
+                            <option value="0"></option>
+                        <?php foreach ($users as $user) {
+                            echo '<option value="'.$user->id.'">'.$user->name.'</option>';
+                        } ?>
+                        </select>
                     </div>
                     <div class="form-group product-price">
-                        <label class="before-form-select">Товар:</label>
-                        <select class="form-select form-control" name="product_id">
+                        <label class="before-product-select">Товар:</label>
+                        <select class="product-select form-control" name="product_id">
                             <option value="0" data-price="0"></option>
                         <?php foreach ($products as $product) {
                             echo '<option value="'.$product->id.'" data-price="'.$product->price.'">'.$product->title.'</option>';
