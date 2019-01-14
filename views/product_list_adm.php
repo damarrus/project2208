@@ -29,10 +29,15 @@
                 14.11.2018
             </div>
             <div class="col-sm-2 product-id-block">Номер товара: <span id="product-id">'.$product->id.'</span></div>
-            <div class="col-sm-3 product-title-block">Название товара: <span id="product-title">'.$product->title.'</span></div>
-            <div class="col-sm-3 product-price-block  font-weight-bold">Цена: <span id="product-price">'.$product->price.'</span> руб.</div>
+            <div class="col-sm-3 product-title-block">Название товара: <span id="product-title"><h6>'.$product->title.'</span></div>
+            <div class="col-sm-3 product-price-block  font-weight-bold">Цена: <span id="product-price">'.$product->price.'</span> руб.</div>        
             <button class="btn-prod btn btn-outline-success btn-sm btn-change" data-toggle="modal" data-target="#changeProd">Изменить</button>
+            <br>
             <button type="button" class="btn-prod btn btn-danger btn-delete" data-toggle="modal" data-target="#deleteProd">Удалить</button>
+            <div class="catcol" style="position: absolute;">
+                <input type="hidden" id="category_id" value='.$product->category_id.'>
+                <input type="hidden" id="collection_id" value='.$product->collection_id.'>
+            </div>
         </div>
     </div>
   <div class="cutting_line mb-5 pt-2"></div>';
@@ -87,13 +92,13 @@
                     <h6>Название</h6> <input class="form-control product-title" type="text" name="title" value=""><br>
                     <h6>Цена </h6><input class="form-control product-price" type="number" name="price" value=""><br>
                     <h6>Категория </h6>
-                    <select class="form-control product-category" name="category_id">
+                    <select class="form-control product-category" name="category_id" id="product_category_area">
                         <?php foreach ($categories as $category) {
-                        echo '<option '.($product->category_id == $category->id ? 'selected' : '').' value="'.$category->id.'">'.$category->title.'</option>';
+                        echo '<option value="'.$category->id.'" class="current-category current-category-'.$category->id.'">'.$category->title.'</option>';
                             } ?>
                     </select><br>
                     <h6>Коллекция</h6>
-                    <input class="form-control" type="number" name="collection_id" value="<?php echo $product->collection_id ?>"><br>
+                    <input class="form-control" type="number" name="collection_id" id="product_collection_area" value="<?php echo $product->collection_id ?>"><br>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Отмена</button>
