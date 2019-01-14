@@ -117,17 +117,31 @@ $(document).ready(function() {
                 products: products,
             },
             success: function(response) {
-                if (response) {
-                    $('.receiver').animate({
-                        top:'-90px',
-                        'opacity':1
-                    },1000);
-                    $('.receiver').html('ВАШ ЗАКАЗ ДОБАВЛЕН!');
+                $('.receiver').animate({
+                    top:'-90px'
+                },1000);
+                if (response != 0) {
+                    number = JSON.parse(response);
+                    $('.receiver').html('ВАШ ЗАКАЗ ДОБАВЛЕН! НОМЕР ЗАКАЗА - ' + number + '.');
+                } else {
+                    $('.receiver').html('ЗАПОЛНИТЕ ВСЕ ПОЛЯ!');
                 }
+                setTimeout(function() {
+                    $('.receiver').animate({
+                        top:'-180px'
+                    },1000);
+                }, 3000);
             }
         });
 
         return false;
+    });
+
+    $(".DeleteProduct").on('click',function(){
+        
+        $(this).parent().remove();
+        countTotal();
+        
     });
 });
 
@@ -148,6 +162,6 @@ function countTotal() {
         totalprice = totalprice + total['price']*total['count'];
     });
 
-    $('#InputTotal').text(totalprice);
+    $('#InputTotal').text(totalprice + ' руб');
 
 }

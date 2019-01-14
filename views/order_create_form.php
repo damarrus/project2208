@@ -11,13 +11,21 @@
 <hr>
 <div class="container">
         <div class="row justify-content-center">
-            <div class="col-sm-8" id="rel">
+            <div class="col-sm-9" id="rel">
                 <div class="receiver"></div>
                 <form id="create" method="POST" action="order_create.php">
                     <h1>ФОРМА ДЛЯ СОЗДАНИЯ ЗАКАЗА</h1>
                     <div class="form-group">
                         <label for="InputStatus">Статус:</label>
-                        <input type="number" class="form-control" id="InputStatus" name="status">
+                        <select class="form-select form-control" id="InputStatus" name="status">
+                        <option value="0"></option>
+                        <?php 
+                            echo '<option value="0">Оформлен</option>
+                                  <option value="1">Оплачен</option>
+                                  <option value="2">Доставлен</option>
+                                  <option value="3">Отменён</option>';
+                        ?>
+                        </select>
                     </div>
                     <div class="form-group">
                         <label for="InputAdress">Адрес:</label>

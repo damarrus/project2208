@@ -27,6 +27,26 @@ class Order
 
     }
 
+    public function getList($id)
+    {
+        global $mysqli;
+        
+        $query = "SELECT product_id, size_id, price, count FROM order_products WHERE order_id = $id";
+        $result = $mysqli->query($query);
+
+        $data = [];
+        while ($data_item = $result->fetch_assoc()) {
+            $data[] = $data_item;
+        }
+        
+        return($data);
+        // $this->status = $data['status'];
+        // $this->address = $data['address'];
+        // $this->user_id = $data['user_id'];
+        // $this->total = $data['total'];
+
+    }
+
     public static function getAll($status = false, $user_id = false, $page = 1)
     {
         global $mysqli; 
@@ -70,11 +90,17 @@ class Order
     {
         global $mysqli;
 
+        $total = 0;
+
+        foreach ($products as $product) {
+            $total = $total + $product['price']*$product['count'];
+        }
+
         $query = "INSERT INTO orders SET 
                     status=$status, 
                     address='$adress', 
                     user_id=$user_id,
-                    total=0
+                    total=$total
         ";
         $result = $mysqli->query($query);
 

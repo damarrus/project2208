@@ -102,8 +102,7 @@ footer {
 }
 
 .receiver {
-    width: 730px;
-    opacity: 0;
+    width: 825px;
     border: 2px solid #28a745;
     background: white;
     border-radius: 10px;
@@ -112,4 +111,10 @@ footer {
     position: absolute;
     top: -180px;
     text-align: center; 
+}
+
+.DeleteProduct {
+    border: solid 2px #dc3545;
+    width: 25%;
+    margin: 5px;
 }
