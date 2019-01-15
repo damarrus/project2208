@@ -75,6 +75,7 @@
                         <label id="InputTotal"><?php echo "$order->total руб" ?></label>
                     </div>
                     <button type="submit" class="btn btn-block gold">Изменить заказ</button>
+                    <input type="hidden" id="OrderId" name="order_id" value="<?php echo $order->id ?>">
                 </form>
             </div>
         </div>

@@ -120,6 +120,40 @@ class Order
         return $insert_id;
     }
 
+    public function update($status, $adress, $user_id, $products, $order_id)
+    {
+        global $mysqli;
+
+        $total = 0;
+
+        foreach ($products as $product) {
+            $total = $total + $product['price']*$product['count'];
+        }
+
+        $query = "UPDATE orders SET 
+                    status=$status, 
+                    address='$adress', 
+                    user_id=$user_id,
+                    total=$total
+                   WHERE order_id=".$this->id;
+        
+        $result = $mysqli->query($query);
+
+        foreach ($products as $product) {
+            $query = "UPDATE order_products SET 
+                        product_id={$product['product_id']}, 
+                        size_id={$product['size_id']},
+                        price={$product['price']},
+                        count={$product['count']}
+                      WHERE order_id=".$order_id;
+
+        $result = $mysqli->query($query);
+        
+        }
+
+        return $mysqli->affected_rows;
+    }
+
 }
 
 // $order_col = Order::getAll(0,0);

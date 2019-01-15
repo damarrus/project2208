@@ -137,6 +137,56 @@ $(document).ready(function() {
         return false;
     });
 
+    $("#update").submit(function(){
+
+        var status = $("#InputStatus").val();
+        var adress = $("#InputAdress").val();
+        var user_id = $("#InputUserId").val();
+        var products = [];
+        var order_id = $("#OrderId").val();
+
+        $(".product-select").each(function(){
+            var price_source = $(this).parent().find('.form-price');
+            var count_source = $(this).parent().find('.form-count');
+
+            products.push({
+                product_id: $(this).val(),
+                size_id: $(this).parent().find('.form-size').val(),
+                price: price_source.val() ? price_source.val() : price_source.attr('placeholder'),
+                count: count_source.val(),
+            });
+        })
+
+        $.ajax({
+            method:'POST',
+            url:'order_update.php',
+            data:{
+                status: status,
+                adress: adress,
+                user_id: user_id,
+                products: products,
+                order_id: order_id,
+            },
+            success: function(response) {
+                $('.receiver').animate({
+                    top:'-90px'
+                },1000);
+                if (response != 0) {
+                    $('.receiver').html('ВАШ ЗАКАЗ ИЗМЕНЕН!');
+                } else {
+                    $('.receiver').html('ЗАПОЛНИТЕ ВСЕ ПОЛЯ!');
+                }
+                setTimeout(function() {
+                    $('.receiver').animate({
+                        top:'-180px'
+                    },1000);
+                }, 3000);
+            }
+        });
+
+        return false;
+    });
+
     $(".DeleteProduct").on('click',function(){
         
         $(this).parent().remove();
