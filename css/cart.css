@@ -61,6 +61,13 @@ td {
     text-align: left;
     border-bottom: 1px solid #ddd;
   }
+.main-cart-product-block-delete2 {
+    width: 20px;
+    transition: .2s;
+    cursor: pointer;
+    height: 20px;
+    margin: 0 auto;
+}
 .main-cart-product-block-delete {
     width: 20px;
     transition: .2s;
@@ -76,7 +83,6 @@ td {
     transform: rotate(45deg);
     transition: .2s;
     top: 45%;
-
     background: #000;
 }
 .main-cart-product-block-delete::after {

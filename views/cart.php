@@ -19,6 +19,8 @@
             <td class="main-cart-column-title">Удалить</th>
         </tr>
             <?php 
+            // var_dump($_SESSION);
+             if (isset($_SESSION['cart'])) {
                 foreach ($products as $product) {
                     echo '
                     <tr>
@@ -31,7 +33,11 @@
                                 <p class="main-cart-product-block-name-articul">арт. 123441</p>
                             </div>
                         </td>
-                        <td class="tac"></td>
+                        <td class="tac">
+                            <div class="main-cart-product-block-name">
+                                <p class="main-cart-product-block-name-title">' . $size->value . '</p>
+                            </div>
+                        </td>
                         <td class="tac"><div class="amount">1
                             <div class="amount-btn">
                                 <div class="amount-btn-plus">+</div>
@@ -41,14 +47,20 @@
                         </td>
                         <td class="tac">' . $product->price . ' руб.</td>
                         <td>
-                            <div class="main-cart-product-block-delete"></div>
+                            <form action="delete_from_cart.php" method="POST">
+                                <input name="deleteFromCart" type="hidden" value="' . $product->id . '" />
+                                <input class="main-cart-product-block-delete2" type="submit" value="Х">
+                            </form>
                         </td>
                     </tr>';
-                } 
+                }
+            } else {
+                echo '';
+            }
             ?>
     </table>
     <div class="main-cart-total">
-        <div class="main-cart-total-text">Итого: <span class="main-cart-total-text-sum">12500 руб.</span></div>
+        <div class="main-cart-total-text">Итого: <span class="main-cart-total-text-sum">0 руб.</span></div>
     </div>
 
     <div class="orange">

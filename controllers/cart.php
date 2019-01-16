@@ -9,11 +9,12 @@ if (isset($_SESSION['cart'])) {
         $product = new Product($product_id);
         $product->sizes = Size::getAllByProduct();
         foreach($product->sizes as $size) {
-            
+            // $size = new Product($id);
         }
         $products[] = $product;
     }
-    
+    unset($_SESSION['Cart'][3]);
+
     // foreach($_SESSION['cart'] as $cart_item) {
     //     $product = new Product($cart_item['product_id']);
     //     // $product->size = new Size($cart_item['size_id']);

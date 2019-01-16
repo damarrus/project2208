@@ -31,15 +31,14 @@
                         <div class="customer-area-box">
                         <div class="customer-area-logo-basket"></div>
                         <div class="customer-area-basket">
-                            <p>Корзина (<span id="total_cart">
+                            <p><a href="cart.php" class="header-link">Корзина (<span id="total_cart">
                             <?php 
-                                session_start();
-                                if ($_SESSION) {
-                                $order = count($_SESSION['cart']);
-                                echo $order;
-                                } else echo '0';
-                                ?>
-                            </span>)</p>
+                                if (isset($_SESSION['cart'])) {
+                                    $order = count($_SESSION['cart']);
+                                    echo $order;
+                                } else echo '0';            
+                            ?>
+                            </span>)</a></p>
                         </div>
                     </div>
                 </div>

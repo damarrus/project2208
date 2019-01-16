@@ -35,7 +35,6 @@ $(document).ready(function() {
         var size = $('.sizes-item_e').data('size-id');
         console.log(size);
 
-
         $.ajax({
             method:'post',
             url:'add_to_cart.php',
@@ -48,6 +47,20 @@ $(document).ready(function() {
                 if (response) {
                     i++;
                     $("#total_cart").html(response);
+                }
+            }
+        });
+
+        $.ajax({
+            method:'post',
+            url:'delete_from_cart.php',
+            data:{
+                product_id: product_id
+            },
+            success: function(response) {
+                if (response) {
+                    var i = $("#total_cart").text(response);
+                    i--;
                 }
             }
         });
