@@ -22,7 +22,6 @@
         <h4>Коллекция <input class="form-control" type="number" name="collection_id"></h4>
         <button type="submit" class="btn btn-primary">Создать товар</button>
     </form>
-    <a href="product_delete_form.php" class="btn btn-outline-danger btn-sm">Удалить товар</a>
-    <a href="product_delete_form.php" class="btn btn-outline-success btn-sm">Изменить товар</a>
+    <a href="product_list_adm.php" class="btn btn-outline-success btn-sm">Перейти к списку товаров</a>
 </div>
 <?php require_once '../templates/footer_admin.php' ?>

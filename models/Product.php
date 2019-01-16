@@ -83,7 +83,8 @@ class Product
                     category_id=$category_id,
                     collection_id=$collection_id
                   WHERE product_id=".$this->id;
-
+        // var_dump($query);
+        // die;
         $result = $mysqli->query($query);
 
         return $mysqli->affected_rows;
