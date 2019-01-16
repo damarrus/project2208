@@ -27,6 +27,26 @@ class Order
 
     }
 
+    public function getList($id)
+    {
+        global $mysqli;
+        
+        $query = "SELECT product_id, size_id, price, count FROM order_products WHERE order_id = $id";
+        $result = $mysqli->query($query);
+
+        $data = [];
+        while ($data_item = $result->fetch_assoc()) {
+            $data[] = $data_item;
+        }
+        
+        return($data);
+        // $this->status = $data['status'];
+        // $this->address = $data['address'];
+        // $this->user_id = $data['user_id'];
+        // $this->total = $data['total'];
+
+    }
+
     public static function getAll($status = false, $user_id = false, $page = 1)
     {
         global $mysqli; 
@@ -66,9 +86,15 @@ class Order
         ];
     }
 
-    public static function create($status, $adress, $user_id, $total, $product_ids)
+    public static function create($status, $adress, $user_id, $products)
     {
         global $mysqli;
+
+        $total = 0;
+
+        foreach ($products as $product) {
+            $total = $total + $product['price']*$product['count'];
+        }
 
         $query = "INSERT INTO orders SET 
                     status=$status, 
@@ -80,18 +106,52 @@ class Order
 
         $insert_id = $mysqli->insert_id;
 
-        foreach ($product_ids as $product_id) {
-        $query = "INSERT INTO order_products SET 
-                    order_id=$insert_id, 
-                    product_id=$product_id, 
-                    size_id=0,
-                    price=0,
-                    count=0
-        ";
-        $result = $mysqli->query($query);
+        foreach ($products as $product) {
+            $query = "INSERT INTO order_products SET 
+                        order_id=$insert_id, 
+                        product_id={$product['product_id']}, 
+                        size_id={$product['size_id']},
+                        price={$product['price']},
+                        count={$product['count']}
+            ";
+            $result = $mysqli->query($query);
         }
 
         return $insert_id;
+    }
+
+    public function update($status, $adress, $user_id, $products, $order_id)
+    {
+        global $mysqli;
+
+        $total = 0;
+
+        foreach ($products as $product) {
+            $total = $total + $product['price']*$product['count'];
+        }
+
+        $query = "UPDATE orders SET 
+                    status=$status, 
+                    address='$adress', 
+                    user_id=$user_id,
+                    total=$total
+                   WHERE order_id=".$this->id;
+        
+        $result = $mysqli->query($query);
+
+        foreach ($products as $product) {
+            $query = "UPDATE order_products SET 
+                        product_id={$product['product_id']}, 
+                        size_id={$product['size_id']},
+                        price={$product['price']},
+                        count={$product['count']}
+                      WHERE order_id=".$order_id;
+
+        $result = $mysqli->query($query);
+        
+        }
+
+        return $mysqli->affected_rows;
     }
 
 }

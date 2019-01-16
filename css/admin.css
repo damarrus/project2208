@@ -76,15 +76,44 @@ footer {
     z-index: 999999999;
 }
 
-.before-form-checkbox {
-    width: 100%;
+
+.before-product-select {
+    margin: 10px 10px 10px 0;
 }
 
-.form-checkbox-label {
-    width: 40%;
+.before-form-price {
+    margin: 10px;
 }
 
-.form-checkbox {
-   width: 5%;
-   margin: 0px 10px;
+.before-form-size {
+    margin: 10px;
+}
+.before-form-count {
+    margin: 10px;
+}
+.form-size, .form-count {
+    width: 75%;
+}
+
+.product-price {
+    display: flex;
+    align-items: center;
+}
+
+.receiver {
+    width: 825px;
+    border: 2px solid #28a745;
+    background: white;
+    border-radius: 10px;
+    margin: 20px 0px;
+    padding: 25px; 
+    position: absolute;
+    top: -180px;
+    text-align: center; 
+}
+
+.DeleteProduct {
+    border: solid 2px #dc3545;
+    width: 25%;
+    margin: 5px;
 }
