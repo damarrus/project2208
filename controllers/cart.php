@@ -7,13 +7,16 @@ if (isset($_SESSION['cart'])) {
     $products = [];
     foreach ($_SESSION['cart'] as $product_id) {
         $product = new Product($product_id);
-        $product->sizes = Size::getAllByProduct();
+        $product->sizes = Size::getAllByProduct($product_id);
+        $sizes = [];
         foreach($product->sizes as $size) {
-            // $size = new Product($id);
+            $size = new Size($product_id);
         }
         $products[] = $product;
+        // $sizes[] = $size;
+
     }
-    unset($_SESSION['Cart'][3]);
+    // unset($_SESSION['Cart'][3]);
 
     // foreach($_SESSION['cart'] as $cart_item) {
     //     $product = new Product($cart_item['product_id']);

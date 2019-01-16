@@ -255,7 +255,7 @@ td {
     flex-wrap: wrap;
     justify-content: center; */
     position: relative;
-    cursor: pointer;
+
 
 }
 .amount-btn-plus {
@@ -267,6 +267,7 @@ td {
     height: 20px;
     color: white;
     background: #000;
+    cursor: pointer;
 }
 .amount-btn-minus {
     position: absolute;
@@ -277,4 +278,5 @@ td {
     height: 20px;
     color: white;
     background: #000;
+    cursor: pointer;
 }

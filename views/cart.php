@@ -20,7 +20,7 @@
         </tr>
             <?php 
             // var_dump($_SESSION);
-             if (isset($_SESSION['cart'])) {
+             if (isset($_SESSION['cart'])) { 
                 foreach ($products as $product) {
                     echo '
                     <tr>
