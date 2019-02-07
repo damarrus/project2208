@@ -1,5 +1,5 @@
 <?php
-$mysqli = new mysqli('localhost', 'root', '', 'shop2208');
+$mysqli = new mysqli('localhost', 'root', 'root', 'shop2208');
 
 
 if ($mysqli->connect_error) {
